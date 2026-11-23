@@ -1,12 +1,14 @@
 """Build rows for tests with sensible defaults; any column can be overridden by keyword."""
 
 import uuid
-from datetime import UTC, datetime
+from datetime import UTC, datetime, timedelta
 from typing import Any
 
 from sqlalchemy.orm import Session
 
 from app.catalog.models import Board, Company, Posting, PostingFeatures
+from app.core.security import hash_opaque_token, new_opaque_token
+from app.identity.models import PasswordResetToken, RefreshToken, User
 
 
 def _unique(prefix: str) -> str:
@@ -75,3 +77,42 @@ def make_features(db: Session, posting: Posting, **kw: Any) -> PostingFeatures:
     db.add(features)
     db.flush()
     return features
+
+
+def make_user(db: Session, **fields: Any) -> User:
+    defaults: dict[str, Any] = {
+        "email": f"user-{uuid.uuid4().hex[:8]}@example.in",
+        "password_hash": "not-a-real-hash",
+        "full_name": "Test User",
+    }
+    user = User(**(defaults | fields))
+    db.add(user)
+    db.flush()
+    return user
+
+
+def make_refresh_token(db: Session, **fields: Any) -> RefreshToken:
+    defaults: dict[str, Any] = {
+        "family_id": uuid.uuid4(),
+        "token_hash": hash_opaque_token(new_opaque_token()),
+        "expires_at": datetime.now(UTC) + timedelta(days=7),
+    }
+    if "user_id" not in fields:
+        defaults["user_id"] = make_user(db).id
+    token = RefreshToken(**(defaults | fields))
+    db.add(token)
+    db.flush()
+    return token
+
+
+def make_password_reset_token(db: Session, **fields: Any) -> PasswordResetToken:
+    defaults: dict[str, Any] = {
+        "token_hash": hash_opaque_token(new_opaque_token()),
+        "expires_at": datetime.now(UTC) + timedelta(minutes=30),
+    }
+    if "user_id" not in fields:
+        defaults["user_id"] = make_user(db).id
+    token = PasswordResetToken(**(defaults | fields))
+    db.add(token)
+    db.flush()
+    return token

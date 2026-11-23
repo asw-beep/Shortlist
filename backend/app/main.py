@@ -7,6 +7,7 @@ tests can build a fresh app with their own Settings and nothing leaks between te
 from collections.abc import AsyncIterator
 from contextlib import asynccontextmanager
 
+import httpx
 import structlog
 from fastapi import FastAPI
 
@@ -18,6 +19,7 @@ from app.core.logging import configure_logging
 from app.core.middleware import RequestContextMiddleware
 from app.db.engine import create_db_engine
 from app.db.session import create_session_factory
+from app.notify.email import BrevoEmailSender, EmailSender, InMemoryEmailSender
 
 log = structlog.get_logger(__name__)
 
@@ -38,6 +40,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     app.state.settings = settings
     app.state.engine = create_db_engine(settings)
     app.state.session_factory = create_session_factory(app.state.engine)  # used by get_db
+    app.state.email_sender = create_email_sender(settings)
 
     # Middleware added last runs first. The size limit sits inside the request context, so
     # even a refused upload gets a request ID and an access-log line.
@@ -46,6 +49,17 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     register_exception_handlers(app)
     app.include_router(build_api_router(settings.api_prefix))
     return app
+
+
+def create_email_sender(settings: Settings) -> EmailSender:
+    if settings.brevo_api_key is None:
+        return InMemoryEmailSender()
+    return BrevoEmailSender(
+        api_key=settings.brevo_api_key.get_secret_value(),
+        sender_email=settings.email_from_address,
+        sender_name=settings.email_from_name,
+        client=httpx.Client(),
+    )
 
 
 app = create_app()

@@ -21,6 +21,7 @@ from app.embed.model import FastEmbedder
 from app.embed.service import run_embedding
 from app.extract.service import run_extraction, seed_skills
 from app.extract.taxonomy import SkillMatcher
+from app.identity.invites import create_invites
 from app.ingest.ats import Ats, BoardFetchError, RawPosting, fetch_board
 from app.ingest.boards import BoardSpec, load_boards_file, sync_boards
 from app.ingest.service import purge_closed, run_ingest
@@ -101,6 +102,15 @@ def cmd_pipeline(settings: Settings) -> int:
     return 0
 
 
+def cmd_invite_create(settings: Settings, count: int) -> int:
+    session_factory = create_session_factory(create_db_engine(settings))
+    with session_factory() as db:
+        codes = create_invites(db, count)
+        db.commit()
+    print("\n".join(codes))
+    return 0
+
+
 COMMANDS: dict[str, Callable[[Settings], int]] = {
     "ingest": cmd_ingest,
     "check-boards": cmd_check_boards,
@@ -108,15 +118,19 @@ COMMANDS: dict[str, Callable[[Settings], int]] = {
     "extract": cmd_extract,
     "embed": cmd_embed,
     "pipeline": cmd_pipeline,
+    "invite-create": lambda settings: cmd_invite_create(settings, 1),
 }
 
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="python -m app.cli")
     parser.add_argument("command", choices=sorted(COMMANDS))
+    parser.add_argument("--count", type=int, default=1, help="invite-create: how many codes")
     args = parser.parse_args(argv)
     settings = get_settings()
     configure_logging(level=settings.log_level, json_logs=settings.log_json)
+    if args.command == "invite-create":
+        return cmd_invite_create(settings, args.count)
     return COMMANDS[args.command](settings)
 
 
