@@ -25,3 +25,12 @@ def test_check_boards_reports_and_fails_on_any_error() -> None:
 def test_check_boards_ok_is_zero() -> None:
     out = io.StringIO()
     assert check_boards([BoardSpec("Acme", "lever", "acme")], lambda a, s: [], out) == 0
+
+
+def test_digest_refuses_without_an_email_provider(monkeypatch, capsys) -> None:
+    """Without Brevo the digest would 'send' into memory and mark every student as sent."""
+    from app import cli
+    from app.core.config import Settings
+
+    monkeypatch.setattr(cli, "get_settings", lambda: Settings(_env_file=None, environment="test"))
+    assert cli.main(["digest"]) == 1

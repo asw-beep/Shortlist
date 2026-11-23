@@ -22,7 +22,7 @@ from app.db.session import create_session_factory
 from app.embed.model import FastEmbedder
 from app.extract.taxonomy import SkillMatcher
 from app.llm.chain import build_chain
-from app.notify.email import BrevoEmailSender, EmailSender, InMemoryEmailSender
+from app.notify.email import create_email_sender
 from app.search.config import load_ranking_config
 from app.tracing.spans import DbSpanSink
 
@@ -65,17 +65,6 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     register_exception_handlers(app)
     app.include_router(build_api_router(settings.api_prefix))
     return app
-
-
-def create_email_sender(settings: Settings) -> EmailSender:
-    if settings.brevo_api_key is None:
-        return InMemoryEmailSender()
-    return BrevoEmailSender(
-        api_key=settings.brevo_api_key.get_secret_value(),
-        sender_email=settings.email_from_address,
-        sender_name=settings.email_from_name,
-        client=httpx.Client(),
-    )
 
 
 app = create_app()

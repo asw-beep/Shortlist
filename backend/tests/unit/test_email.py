@@ -3,8 +3,12 @@
 from pydantic import SecretStr
 
 from app.core.config import Settings
-from app.main import create_email_sender
-from app.notify.email import BrevoEmailSender, EmailMessage, InMemoryEmailSender
+from app.notify.email import (
+    BrevoEmailSender,
+    EmailMessage,
+    InMemoryEmailSender,
+    create_email_sender,
+)
 
 
 def test_in_memory_sender_keeps_messages() -> None:

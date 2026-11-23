@@ -7,10 +7,13 @@ there. Neither logs a message body, because bodies carry secrets such as reset l
 
 from collections import deque
 from dataclasses import dataclass
-from typing import Any, Protocol
+from typing import TYPE_CHECKING, Any, Protocol
 
 import httpx
 import structlog
+
+if TYPE_CHECKING:
+    from app.core.config import Settings
 
 log = structlog.get_logger(__name__)
 BREVO_URL = "https://api.brevo.com/v3/smtp/email"
@@ -72,3 +75,15 @@ class BrevoEmailSender:
         if response.status_code >= 300:
             raise EmailError(f"Brevo refused the message: HTTP {response.status_code}")
         log.info("email.sent", subject=message.subject, provider="brevo")
+
+
+def create_email_sender(settings: "Settings") -> EmailSender:
+    """Brevo when a key is set; otherwise an in-memory list (tests, a laptop)."""
+    if settings.brevo_api_key is None:
+        return InMemoryEmailSender()
+    return BrevoEmailSender(
+        api_key=settings.brevo_api_key.get_secret_value(),
+        sender_email=settings.email_from_address,
+        sender_name=settings.email_from_name,
+        client=httpx.Client(),
+    )

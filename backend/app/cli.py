@@ -17,6 +17,7 @@ from app.core.config import Settings, get_settings
 from app.core.logging import configure_logging
 from app.db.engine import create_db_engine
 from app.db.session import create_session_factory
+from app.digest.service import run_digest
 from app.embed.model import FastEmbedder
 from app.embed.service import run_embedding
 from app.extract.service import run_extraction, seed_skills
@@ -26,6 +27,8 @@ from app.ingest.ats import Ats, BoardFetchError, RawPosting, fetch_board
 from app.ingest.boards import BoardSpec, load_boards_file, sync_boards
 from app.ingest.service import purge_closed, run_ingest
 from app.llm.chain import build_chain
+from app.notify.email import create_email_sender
+from app.search.config import load_ranking_config
 from app.tracing.spans import DbSpanSink
 
 log = structlog.get_logger(__name__)
@@ -102,6 +105,21 @@ def cmd_pipeline(settings: Settings) -> int:
     return 0
 
 
+def cmd_digest(settings: Settings) -> int:
+    if settings.brevo_api_key is None:
+        log.error("digest.no_email_provider", hint="set BREVO_API_KEY")
+        return 1
+    session_factory = create_session_factory(create_db_engine(settings))
+    embedder = FastEmbedder(settings.embed_model, settings.embed_cache_dir, threads=None)
+    config = load_ranking_config(settings.repo_path(settings.ranking_config_path))
+    with session_factory() as db:
+        summary = run_digest(
+            db, create_email_sender(settings), embedder, config, settings, now=datetime.now(UTC)
+        )
+    log.info("digest.done", **vars(summary))
+    return 1 if summary.failed else 0
+
+
 def cmd_invite_create(settings: Settings, count: int) -> int:
     session_factory = create_session_factory(create_db_engine(settings))
     with session_factory() as db:
@@ -118,6 +136,7 @@ COMMANDS: dict[str, Callable[[Settings], int]] = {
     "extract": cmd_extract,
     "embed": cmd_embed,
     "pipeline": cmd_pipeline,
+    "digest": cmd_digest,
     "invite-create": lambda settings: cmd_invite_create(settings, 1),
 }
 
