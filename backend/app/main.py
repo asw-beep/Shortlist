@@ -19,9 +19,11 @@ from app.core.logging import configure_logging
 from app.core.middleware import RequestContextMiddleware
 from app.db.engine import create_db_engine
 from app.db.session import create_session_factory
+from app.embed.model import FastEmbedder
 from app.extract.taxonomy import SkillMatcher
 from app.llm.chain import build_chain
 from app.notify.email import BrevoEmailSender, EmailSender, InMemoryEmailSender
+from app.search.config import load_ranking_config
 from app.tracing.spans import DbSpanSink
 
 log = structlog.get_logger(__name__)
@@ -47,6 +49,9 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     app.state.email_sender = create_email_sender(settings)
     app.state.http_client = httpx.Client()
     app.state.skill_matcher = SkillMatcher.from_yaml(settings.repo_path(settings.taxonomy_path))
+    app.state.ranking_config = load_ranking_config(settings.repo_path(settings.ranking_config_path))
+    # The model loads on the first query, not at startup; one thread fits Render's 0.1 CPU.
+    app.state.embedder = FastEmbedder(settings.embed_model, settings.embed_cache_dir, threads=1)
     # Builds the résumé model chain per request, so its spans join the request's session.
     # Tests replace it with a fake.
     app.state.resume_llm_factory = lambda db: build_chain(

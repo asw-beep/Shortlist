@@ -5,6 +5,7 @@ from fastapi import APIRouter
 from app.api import health
 from app.identity.router import auth_router, users_router
 from app.profiles.router import router as profile_router
+from app.search.router import router as search_router
 
 
 def build_api_router(prefix: str) -> APIRouter:
@@ -13,4 +14,5 @@ def build_api_router(prefix: str) -> APIRouter:
     router.include_router(auth_router)
     router.include_router(users_router)
     router.include_router(profile_router)
+    router.include_router(search_router)
     return router

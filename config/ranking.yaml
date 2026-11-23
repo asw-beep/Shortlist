@@ -1,0 +1,13 @@
+# Ranking weights and constants (spec §6.5). Tuned values from evals/ranking/tune.py land in
+# ranking.tuned.yaml and are copied here by hand once reviewed.
+weights:
+  skill: 0.30
+  rrf: 0.25
+  experience: 0.15
+  location: 0.10
+  recency: 0.10
+  personal: 0.10
+rrf_k: 60
+candidates: 100
+recency_days: 14
+personal_ramp: 10
