@@ -127,3 +127,8 @@ def test_bare_in_code_counts_only_as_whole_part() -> None:
 )
 def test_customer_facing_titles_are_not_engineering(title: str) -> None:
     assert extract_rules(title, "Pune", "", M).role_family == "other"
+
+
+def test_title_skills_kept_apart_from_description_skills() -> None:
+    f = extract_rules("Python Developer", "", "Experience with k8s", M)
+    assert f.title_skills == {"Python"} and f.skills == {"Python", "Kubernetes"}

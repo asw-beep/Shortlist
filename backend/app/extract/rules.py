@@ -6,7 +6,7 @@ anything to add (`confident`).
 """
 
 import re
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from decimal import Decimal
 from typing import Literal
 
@@ -124,6 +124,8 @@ class RuleFeatures:
     location: Location
     skills: set[str]
     confident: bool
+    # Skills named in the title: precise, unlike description matches ("Go above and beyond").
+    title_skills: set[str] = field(default_factory=set)
 
 
 def _has(text: str, word: str) -> bool:
@@ -296,4 +298,5 @@ def extract_rules(
         location=parse_location(location_raw, is_remote_flag=is_remote_flag),
         skills=skills,
         confident=confident,
+        title_skills=matcher.match(title),
     )
