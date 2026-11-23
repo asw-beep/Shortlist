@@ -1,0 +1,48 @@
+# Mondays 03:30 UTC (09:00 IST): email each opted-in student their top 5 new postings.
+name: Digest
+
+on:
+  schedule:
+    - cron: "30 3 * * 1"
+  workflow_dispatch:
+
+concurrency: digest
+
+permissions:
+  contents: read
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: backend
+    env:
+      ENVIRONMENT: production
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      JWT_SECRET_KEY: ${{ secrets.JWT_SECRET_KEY }}
+      FEEDBACK_LINK_SECRET: ${{ secrets.FEEDBACK_LINK_SECRET }} # the API verifies these links
+      BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+      EMAIL_FROM_ADDRESS: ${{ secrets.EMAIL_FROM_ADDRESS }}
+      FRONTEND_URL: ${{ secrets.FRONTEND_URL }}
+      EMBED_CACHE_DIR: /home/runner/.cache/fastembed
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: astral-sh/setup-uv@v10.3.3
+        with:
+          version: "0.11.2"
+          enable-cache: true
+
+      - name: Install dependencies
+        run: uv sync --locked --no-dev
+
+      - name: Cache the embedding model
+        uses: actions/cache@v5
+        with:
+          path: /home/runner/.cache/fastembed
+          key: fastembed-bge-small-en-v1.5
+
+      - name: Send the digest
+        run: uv run python -m app.cli digest

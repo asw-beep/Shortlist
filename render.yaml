@@ -1,0 +1,33 @@
+# Render Blueprint: the API as one free web service built from backend/Dockerfile.
+# Secrets are entered in the Render dashboard (sync: false), never committed.
+services:
+  - type: web
+    name: shortlist-api
+    runtime: docker
+    plan: free
+    region: singapore
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: .
+    healthCheckPath: /api/v1/health
+    autoDeploy: true
+    envVars:
+      - key: ENVIRONMENT
+        value: production
+      - key: DATABASE_POOLED
+        value: "true"
+      - key: DATABASE_URL # Neon pooled URL (…-pooler…), postgresql+psycopg://
+        sync: false
+      - key: DIRECT_DATABASE_URL # Neon direct URL, used by migrations
+        sync: false
+      - key: JWT_SECRET_KEY
+        sync: false
+      - key: FEEDBACK_LINK_SECRET # must match the GitHub secret the digest job signs with
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
+      - key: BREVO_API_KEY
+        sync: false
+      - key: EMAIL_FROM_ADDRESS
+        sync: false
+      - key: FRONTEND_URL # https://<project>.pages.dev
+        sync: false

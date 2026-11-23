@@ -1,0 +1,13 @@
+# The API image needs backend/ (minus tests and scripts), config/ and taxonomy/. Nothing else,
+# and never a .env or a local virtualenv.
+*
+!backend/pyproject.toml
+!backend/uv.lock
+!backend/alembic.ini
+!backend/app
+!backend/migrations
+!config
+!taxonomy
+**/__pycache__
+**/.venv
+**/.env

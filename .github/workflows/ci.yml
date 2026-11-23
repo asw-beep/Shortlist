@@ -1,6 +1,7 @@
 # Runs on every push and pull request.
 #   backend   lint, format, migrations, and every test against a real Postgres with pgvector
 #   frontend  format, lint, types, tests, API types in sync with the backend, production build
+#   image     the API image builds, carries its data files and model, and fits in 512 MB
 name: CI
 
 on:
@@ -112,3 +113,25 @@ jobs:
 
       - name: Build
         run: npm run build
+
+  image:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Build the API image
+        run: docker build -f backend/Dockerfile -t shortlist-api .
+
+      # Offline (no network) and limited like Render Free: the model and data files must be
+      # inside the image, and loading the app plus one embedding must fit in 512 MB.
+      - name: The image runs offline within 512 MB
+        run: |
+          docker run --rm --network none --memory 512m --memory-swap 512m --cpus 0.1 \
+            -e ENVIRONMENT=test shortlist-api python -c "
+          from app.main import create_app
+          app = create_app()
+          vector = app.state.embedder.embed_query('python backend internship')
+          assert len(vector) == 384, len(vector)
+          print('ok: app built, ranking config and taxonomy loaded, model embedded offline')
+          "
