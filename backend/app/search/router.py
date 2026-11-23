@@ -8,6 +8,7 @@ from fastapi import APIRouter, Query, Request
 
 from app.core.schemas import ResponseModel
 from app.db.session import DbSession
+from app.feedback.service import record_impressions
 from app.identity.dependencies import CurrentUser
 from app.profiles.service import get_profile
 from app.search.errors import ProfileIncompleteError
@@ -51,6 +52,7 @@ def feed(
     items = search(
         db, state.embedder, state.ranking_config, user_id=user.id, query=query_used, limit=limit
     )
+    record_impressions(db, user_id=user.id, items=items, surface="feed")
     return FeedOut(
         items=[RankedJobOut.model_validate(item) for item in items], query_used=query_used
     )
