@@ -1,0 +1,69 @@
+# Runs on every push and pull request.
+#   backend   lint, format, migrations, and every test against a real Postgres with pgvector
+name: CI
+
+on:
+  push:
+  pull_request:
+
+# A newer push to the same branch cancels the run it makes obsolete.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: backend
+
+    services:
+      postgres:
+        image: pgvector/pgvector:pg17 # the same image as docker-compose.yml
+        env:
+          POSTGRES_USER: shortlist
+          POSTGRES_PASSWORD: shortlist
+          POSTGRES_DB: shortlist
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U shortlist -d shortlist"
+          --health-interval 5s
+          --health-timeout 3s
+          --health-retries 10
+
+    env:
+      DATABASE_URL: postgresql+psycopg://shortlist:shortlist@localhost:5432/shortlist
+      ENVIRONMENT: test
+      # Fail, don't skip, if the integration tests cannot reach Postgres.
+      REQUIRE_POSTGRES: "1"
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: astral-sh/setup-uv@v10.3.3
+        with:
+          version: "0.11.2"
+          enable-cache: true
+
+      - name: Install dependencies
+        run: uv sync --locked
+
+      - name: Lint
+        run: uv run ruff check .
+
+      - name: Check formatting
+        run: uv run ruff format --check .
+
+      - name: Migrate and check the models match the migrations
+        run: |
+          uv run alembic upgrade head
+          uv run alembic check
+
+      - name: Tests
+        run: uv run pytest

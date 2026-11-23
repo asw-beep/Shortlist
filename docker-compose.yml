@@ -1,0 +1,26 @@
+# Local database. `docker compose up -d db`, then run the API with uvicorn --reload from backend/.
+# The same image as CI, so pgvector behaves the same on a laptop and in GitHub Actions.
+
+name: shortlist
+
+services:
+  db:
+    image: pgvector/pgvector:pg17
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-shortlist}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-shortlist}
+      POSTGRES_DB: ${POSTGRES_DB:-shortlist}
+    ports:
+      - "5432:5432" # host:container, so tools on Windows reach it at localhost:5432
+    volumes:
+      - pgdata:/var/lib/postgresql/data # named volume: data survives `docker compose down`
+    healthcheck:
+      # $$ stops compose from substituting; the container's shell expands the variable.
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 10s
+
+volumes:
+  pgdata:
