@@ -1,0 +1,317 @@
+{
+ "jobs": [
+  {
+   "absolute_url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8805655002",
+   "data_compliance": [
+    {
+     "type": "gdpr",
+     "requires_consent": false,
+     "requires_processing_consent": false,
+     "requires_retention_consent": false,
+     "retention_period": null,
+     "demographic_data_consent_applies": false
+    }
+   ],
+   "internal_job_id": 6523784002,
+   "location": {
+    "name": "Tokyo, Japan"
+   },
+   "metadata": [
+    {
+     "id": 9740521002,
+     "name": "Company Assignment",
+     "value": "Databricks Japan K.K.",
+     "value_type": "single_select"
+    },
+    {
+     "id": 24059030002,
+     "name": "Career Page Posting Category",
+     "value": [
+      "Field Engineering"
+     ],
+     "value_type": "multi_select"
+    }
+   ],
+   "id": 8805655002,
+   "updated_at": "2026-11-19T16:47:39-05:00",
+   "requisition_id": "CSQ427R266",
+   "title": "デリバリーソリューションアーキテクト",
+   "company_name": "Databricks",
+   "first_published": "2026-09-16T09:11:57-04:00",
+   "language": "en",
+   "application_deadline": null,
+   "content": "&lt;p&gt;Req ID: CSQ427R266&lt;br&gt;Location: Tokyo, Japan&lt;/p&gt;\n&lt;p&gt;Databricksは、お客様がAIプラットフォームを活用して、世界で最も難しいなデータに関する課題を解決できるよう支援することをミッションとしています。デリバリーソリューションアーキテクト（DSA）は、この重要なミッションにおいて、セールスおよびフィールド・エンジニアリングチームと協力し、お客様のDatabricksプラットフォームの導入と利用拡大を加速させる重要な役割を担います。DSAとして、お客様がすでに導入を決定したDatabricksのワークロードについて、お客様がプラットフォームから最大限の価値と投資対効果を得られるよう、技術的な指導とサポートを提供し、お客様の成功を確実にします。特に、複雑な課題を抱えるお客様に対して、より重点的かつ技術的な責任を持って支援を行います。&lt;br&gt;このポジションは、技術とビジネスの両面を兼ね備えたハイブリッドな役割です。担当するお客様とユースケースにおいて、成長を推進します。ビジネス面では、お客様の意思決定者と関係を構築し、他の専門チームと連携しながら、Databricksが実行できる計画や戦略を策定・推進します。技術面ではDatabricksの全製品における、お客様導入後の技術的なリーダーとなります。組織内のあらゆるレベルの人々と、技術的な専門知識を活かしてコミュニケーションをとる能力が求められます。&lt;/p&gt;\n&lt;p&gt;あなたがもたらす影響 :&amp;nbsp;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;戦略的アカウントにおける複雑なユースケースおよび複数のワークストリーム全体で、技術的な実行戦略を定義し、影響を与える。&lt;/li&gt;\n&lt;li&gt;お客様のテクニカルリードやアーキテクトにとって信頼される技術アドバイザーとなり、アーキテクチャの議論をリードし、技術的な意思決定をガイドする。&lt;/li&gt;\n&lt;li&gt;パフォーマンス、コスト、信頼性、長期的なニーズのバランスを取りながら、安全かつガバナンスの効いたスケーラブルなDatabricksアーキテクチャを設計する。&lt;/li&gt;\n&lt;li&gt;お客様の成果を加速させる実用的なソリューション、プロトタイプ、再利用可能な技術資産を構築・実証する。&lt;/li&gt;\n&lt;li&gt;プラットフォームの成熟度とスケーリングのニーズを予測し、セキュリティ、ガバナンス、運用の卓越性に関するベストプラクティスを確立する。&lt;/li&gt;\n&lt;li&gt;アーキテクチャに影響を与え、デリバリーの障害を取り除き、技術的な実行をビジネス成果に結びつけることで、プラットフォームの採用と利用を促進する。&lt;/li&gt;\n&lt;li&gt;Databricks、お客様、導入チームと連携し、リソースの調整、リスク管理、デリバリーの加速を行う。&lt;/li&gt;\n&lt;li&gt;同僚を指導し、組織全体で活用できる再利用可能な技術ガイダンス、フレームワーク、およびイネーブルメントに貢献する。&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;必要な条件/経験:&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;ソリューションアーキテクト、ソリューションエンジニアリング、技術コンサルティング、プロフェッショナルサービス、データエンジニアリング、または関連する技術的役割における5年以上の経験&lt;/li&gt;\n&lt;li&gt;複雑な顧客のユースケースや複数のワークストリーム全体で、技術戦略やアーキテクチャに影響を与えた経験&lt;/li&gt;\n&lt;li&gt;Python、SQL、または類似の言語における高いコーディング能力と、技術的ソリューションの構築、デバッグ、検証を行う能力&lt;/li&gt;\n&lt;li&gt;分散データシステム、データエンジニアリング、分析、データウェアハウジング、AI/ML、および最新のクラウドアーキテクチャに関する深い理解&lt;/li&gt;\n&lt;li&gt;安全でガバナンスが効き、スケーラブルかつ本番環境に対応したデータソリューションを設計した経験&lt;/li&gt;\n&lt;li&gt;不明確な技術的問題を解決し、トレードオフを評価し、構造化された分析や実験を通じてソリューションを検証する能力&lt;/li&gt;\n&lt;li&gt;技術リード、アーキテクト、および顧客のシニアステークホルダーとのアーキテクチャ議論をリードした経験&lt;/li&gt;\n&lt;li&gt;セキュリティ、ガバナンス、パフォーマンス、信頼性、コスト最適化など、プラットフォームの運用上の卓越性に関する深い理解&lt;/li&gt;\n&lt;li&gt;技術的リーダーシップを通じて、顧客の採用、利用、そして測定可能なビジネス成果を促進した実績&lt;/li&gt;\n&lt;li&gt;強力なステークホルダーマネジメントおよび部門横断的なリーダーシップスキル（正式な権限なしでチームを調整する能力を含む）&lt;/li&gt;\n&lt;li&gt;コンピュータサイエンス、工学、または同等の分野における学士号&lt;/li&gt;\n&lt;li&gt;日本語の完全な専門的習熟度が必須&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;望ましい経験/スキル&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;Databricksの経験または認定資格&lt;/li&gt;\n&lt;li&gt;AI/ML、データエンジニアリング、ストリーミング、データウェアハウジング、ガバナンス、マイグレーションなどの技術分野における専門知識の構築&lt;/li&gt;\n&lt;li&gt;AWS、Azure、またはGCPおよび本番環境でのクラウドデプロイメントの経験&lt;/li&gt;\n&lt;li&gt;チーム全体で活用できる、再利用可能な技術フレームワーク、デモ、またはイネーブルメント（支援策）を作成した経験&lt;/li&gt;\n&lt;li&gt;ビジネスレベルの英語力があれば尚可&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;選考プロセス:&lt;/strong&gt; Recruiter Screen → Hiring Manager Screen → Design &amp;amp; Architecture → Vibe Coding → Build, Demo &amp;amp; Delivery → Reference Check&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;出張:&lt;/strong&gt; 必要に応じて最大30%程度&lt;/p&gt;&lt;div class=&quot;content-conclusion&quot;&gt;&lt;p&gt;&lt;strong&gt;About Databricks&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-family: arial, sans-serif;&quot;&gt;Databricks is the Data and AI company. More than 20,000 organizations worldwide — including adidas, AT&amp;amp;T, Bayer, Block, Mastercard, Rivian, Unilever, and 70% of the Fortune 500 — rely on the Databricks Data + AI Platform to build and scale data and AI apps, analytics and agents. Headquartered in San Francisco with 30+ offices around the globe, Databricks offers a unified platform that includes Genie, Lakebase, Agent Bricks, Lakeflow, Lakehouse, and Unity Catalog. To learn more, follow Databricks on &lt;a href=&quot;https://www.linkedin.com/company/databricks&quot;&gt;LinkedIn&lt;/a&gt;, &lt;a href=&quot;https://x.com/databricks&quot;&gt;X&lt;/a&gt;, &lt;a href=&quot;https://www.youtube.com/@Databricks&quot;&gt;YouTube&lt;/a&gt;, and &lt;a href=&quot;https://www.instagram.com/databricksinc/?hl=en&quot;&gt;Instagram&lt;/a&gt;.&lt;br&gt;&lt;br&gt;&lt;strong&gt;Benefits&lt;br&gt;&lt;br&gt;&lt;/strong&gt;&lt;/span&gt;At Databricks, we strive to provide comprehensive benefits and perks that meet the needs of all of our employees. For specific details on the benefits offered in your region click &lt;a href=&quot;https://docs.google.com/document/d/154un3e8Xav4BceOSlcYFZRGEuQI54xMxVydRwQn54eQ/edit?usp=sharing&quot;&gt;here&lt;/a&gt;.&lt;br&gt;&lt;br&gt;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Our Commitment to Diversity and Inclusion&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;At Databricks, we are committed to fostering a diverse and inclusive culture where everyone can excel. We take great care to ensure that our hiring practices are inclusive and meet equal employment opportunity standards. Individuals looking for employment at Databricks are considered without regard to age, color, disability, ethnicity, family or marital status, gender identity or expression, language, national origin, physical and mental ability, political affiliation, race, religion, sexual orientation, socio-economic status, veteran status, and other protected characteristics.&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Compliance&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;If access to export-controlled technology or source code is required for performance of job duties, it is within Employer&#39;s discretion whether to apply for a U.S. government license for such positions, and Employer may decline to proceed with an applicant on this basis alone.&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;&lt;/div&gt;",
+   "departments": [
+    {
+     "id": 4001270002,
+     "name": "Delivery Solutions Architects",
+     "child_ids": [],
+     "parent_id": 4069106002
+    }
+   ],
+   "offices": [
+    {
+     "id": 4029277002,
+     "name": "Tokyo, Japan",
+     "location": "Tokyo, Japan",
+     "child_ids": [],
+     "parent_id": 4033856002
+    }
+   ],
+   "ai_disclaimer": null,
+   "include_ai_disclaimer": null,
+   "ai_opt_out_request_url": null
+  },
+  {
+   "absolute_url": "https://databricks.com/company/careers/open-positions/job?gh_jid=6918763002",
+   "data_compliance": [
+    {
+     "type": "gdpr",
+     "requires_consent": false,
+     "requires_processing_consent": false,
+     "requires_retention_consent": false,
+     "retention_period": null,
+     "demographic_data_consent_applies": false
+    }
+   ],
+   "internal_job_id": 5632983002,
+   "location": {
+    "name": "Bengaluru, India; Mumbai, India"
+   },
+   "metadata": [
+    {
+     "id": 9740521002,
+     "name": "Company Assignment",
+     "value": "Databricks India Private Limited",
+     "value_type": "single_select"
+    },
+    {
+     "id": 24059030002,
+     "name": "Career Page Posting Category",
+     "value": [
+      "Sales"
+     ],
+     "value_type": "multi_select"
+    }
+   ],
+   "id": 6918763002,
+   "updated_at": "2026-11-19T16:47:39-05:00",
+   "requisition_id": "P-985",
+   "title": "Account Executive ",
+   "company_name": "Databricks",
+   "first_published": "2023-12-12T05:19:55-05:00",
+   "language": "en",
+   "application_deadline": null,
+   "content": "&lt;p&gt;As an Account Executive your mission will be to help further build our India business, which is one of our fastest growing markets in APJ. The Databricks Sales Team is driving growth through strategic and innovative partnership with our customers, helping businesses thrive by solving the world&#39;s toughest problems with our solutions. You will be inspiring and guiding customers on their data journey, making organisations more collaborative and productive than ever before. You will play an important role in the business in India, with the opportunity to strategically build your territory in close partnership with the business leaders. Using your passion with technology and drive to build, you will help businesses all across India reach their full potential, through the power of Databricks Data Intelligence Platform.&lt;/p&gt;\n&lt;p&gt;You know how to sell innovation and change and can guide deals forward to compress decision cycles. You love understanding a product in-depth and are passionate about communicating its value to customers and partners. Always prospecting for new opportunities, you will close new accounts while growing our business in existing accounts.&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;The impact you will have:&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;Prospect for new customers&lt;/li&gt;\n&lt;li&gt;Assess your existing customers and develop a strategy to identify and engage all buying centres&lt;/li&gt;\n&lt;li&gt;Use a solution approach to selling and creating value for customers&lt;/li&gt;\n&lt;li&gt;Identify the most viable use cases in each account to maximise Databricks&#39; impact&lt;/li&gt;\n&lt;li&gt;Orchestrate and work with teams to maximise the impact of the Databricks ecosystem on your territory&lt;/li&gt;\n&lt;li&gt;Build value with all engagements to promote successful negotiations and close&lt;/li&gt;\n&lt;li&gt;Promote the Databricks enterprise cloud data platform&lt;/li&gt;\n&lt;li&gt;Be customer-focused by delivering technical and business results using the Databricks&lt;strong&gt;&amp;nbsp;&lt;/strong&gt;Data Intelligence Platform&lt;/li&gt;\n&lt;li&gt;Promote Teamwork&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;What we look for:&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;You have previously worked in an early-stage company and you know how to navigate and be successful in a fast-growing organisation&lt;/li&gt;\n&lt;li&gt;5+ years of sales experience in SaaS/PaaS, or Big Data companies&lt;/li&gt;\n&lt;li&gt;Prior customer relationships with CIOs and important decision-makers&lt;/li&gt;\n&lt;li&gt;Simply articulate intricate cloud technologies and big data&lt;/li&gt;\n&lt;li&gt;3+ years of experience exceeding sales quotas&lt;/li&gt;\n&lt;li&gt;Success closing new accounts while upselling existing accounts&lt;/li&gt;\n&lt;li&gt;Bachelor&#39;s Degree&lt;/li&gt;\n&lt;/ul&gt;&lt;div class=&quot;content-conclusion&quot;&gt;&lt;p&gt;&lt;strong&gt;About Databricks&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-family: arial, sans-serif;&quot;&gt;Databricks is the Data and AI company. More than 20,000 organizations worldwide — including adidas, AT&amp;amp;T, Bayer, Block, Mastercard, Rivian, Unilever, and 70% of the Fortune 500 — rely on the Databricks Data + AI Platform to build and scale data and AI apps, analytics and agents. Headquartered in San Francisco with 30+ offices around the globe, Databricks offers a unified platform that includes Genie, Lakebase, Agent Bricks, Lakeflow, Lakehouse, and Unity Catalog. To learn more, follow Databricks on &lt;a href=&quot;https://www.linkedin.com/company/databricks&quot;&gt;LinkedIn&lt;/a&gt;, &lt;a href=&quot;https://x.com/databricks&quot;&gt;X&lt;/a&gt;, &lt;a href=&quot;https://www.youtube.com/@Databricks&quot;&gt;YouTube&lt;/a&gt;, and &lt;a href=&quot;https://www.instagram.com/databricksinc/?hl=en&quot;&gt;Instagram&lt;/a&gt;.&lt;br&gt;&lt;br&gt;&lt;strong&gt;Benefits&lt;br&gt;&lt;br&gt;&lt;/strong&gt;&lt;/span&gt;At Databricks, we strive to provide comprehensive benefits and perks that meet the needs of all of our employees. For specific details on the benefits offered in your region click &lt;a href=&quot;https://docs.google.com/document/d/154un3e8Xav4BceOSlcYFZRGEuQI54xMxVydRwQn54eQ/edit?usp=sharing&quot;&gt;here&lt;/a&gt;.&lt;br&gt;&lt;br&gt;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Our Commitment to Diversity and Inclusion&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;At Databricks, we are committed to fostering a diverse and inclusive culture where everyone can excel. We take great care to ensure that our hiring practices are inclusive and meet equal employment opportunity standards. Individuals looking for employment at Databricks are considered without regard to age, color, disability, ethnicity, family or marital status, gender identity or expression, language, national origin, physical and mental ability, political affiliation, race, religion, sexual orientation, socio-economic status, veteran status, and other protected characteristics.&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Compliance&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;If access to export-controlled technology or source code is required for performance of job duties, it is within Employer&#39;s discretion whether to apply for a U.S. government license for such positions, and Employer may decline to proceed with an applicant on this basis alone.&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;&lt;/div&gt;",
+   "departments": [
+    {
+     "id": 4003092002,
+     "name": "Enterprise Sales",
+     "child_ids": [],
+     "parent_id": 4001021002
+    }
+   ],
+   "offices": [
+    {
+     "id": 4056342002,
+     "name": "Mumbai, India",
+     "location": "Mumbai, India",
+     "child_ids": [],
+     "parent_id": 4033855002
+    }
+   ],
+   "ai_disclaimer": null,
+   "include_ai_disclaimer": null,
+   "ai_opt_out_request_url": null
+  },
+  {
+   "absolute_url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8758263002",
+   "data_compliance": [
+    {
+     "type": "gdpr",
+     "requires_consent": false,
+     "requires_processing_consent": false,
+     "requires_retention_consent": false,
+     "retention_period": null,
+     "demographic_data_consent_applies": false
+    }
+   ],
+   "internal_job_id": 6247958002,
+   "location": {
+    "name": "Tokyo, Japan"
+   },
+   "metadata": [
+    {
+     "id": 9740521002,
+     "name": "Company Assignment",
+     "value": "Databricks Japan K.K.",
+     "value_type": "single_select"
+    },
+    {
+     "id": 24059030002,
+     "name": "Career Page Posting Category",
+     "value": [
+      "Sales"
+     ],
+     "value_type": "multi_select"
+    }
+   ],
+   "id": 8758263002,
+   "updated_at": "2026-11-19T16:47:39-05:00",
+   "requisition_id": "SLSQ127R32",
+   "title": "Account Executive, Commercial - Hunter",
+   "company_name": "Databricks",
+   "first_published": "2026-08-27T19:45:30-04:00",
+   "language": "en",
+   "application_deadline": null,
+   "content": "&lt;p&gt;SLSQ127R32&lt;/p&gt;\n&lt;p&gt;At Databricks, we empower organizations to make better decisions with data and AI. As an Commercial (Mid-Market) Account Executive, you&#39;ll partner with some of Japan&#39;s most innovative and fast-growing companies - helping them unlock the full potential of their data to scale faster and smarter. You will own an Emerging territory, a portfolio of high‑potential, under‑penetrated accounts (often SMBs and Mid-market) that are not yet covered by a dedicated account owner.&lt;/p&gt;\n&lt;p&gt;You are a strategic, growth-minded sales professional who thrives in dynamic environments. You understand how to engage with senior stakeholders, navigate complex organizations, and drive meaningful outcomes. You&#39;re comfortable managing both short-term opportunities and multi-threaded, strategic initiatives that expand our footprint and customer impact.&lt;/p&gt;\n&lt;p&gt;You will report to Sr Manager, Sales in Japan.&lt;/p&gt;\n&lt;p&gt;The impact you will have:&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;Develop and execute a territory plan targeting Japan’s emerging market segment - growth-stage organizations with significant data and AI ambitions.&lt;/li&gt;\n&lt;li&gt;Effectively manage a mix of rapid, transactional deals and complex, strategic engagements.&lt;/li&gt;\n&lt;li&gt;Consistently meet and exceed activity, pipeline, and revenue goals through active prospecting and account development.&lt;/li&gt;\n&lt;li&gt;Maintain high standards of operational excellence in Salesforce and Clari, including accurate forecasting, opportunity tracking (MEDDPICC), and detailed account notes.&lt;/li&gt;\n&lt;li&gt;Lead with a customer-first mindset and focus on delivering measurable business value.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;What we look for:&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;3+ years of closing experience in SaaS, Cloud, Big Data or AI sales.&lt;/li&gt;\n&lt;li&gt;Proven success exceeding sales KPIs and quotas.&lt;/li&gt;\n&lt;li&gt;Demonstrated ability to acquire new customers and expand existing relationships.&lt;/li&gt;\n&lt;li&gt;(Nice to have) Experience collaborating with partners or engaging in co-selling or partner-led motions within the technology ecosystem.&lt;/li&gt;\n&lt;li&gt;Ability to quickly learn new technical concepts and confidently communicate value propositions.&lt;/li&gt;\n&lt;li&gt;Fluency in Japanese and business-level English is required.&lt;/li&gt;\n&lt;/ul&gt;&lt;div class=&quot;content-conclusion&quot;&gt;&lt;p&gt;&lt;strong&gt;About Databricks&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-family: arial, sans-serif;&quot;&gt;Databricks is the Data and AI company. More than 20,000 organizations worldwide — including adidas, AT&amp;amp;T, Bayer, Block, Mastercard, Rivian, Unilever, and 70% of the Fortune 500 — rely on the Databricks Data + AI Platform to build and scale data and AI apps, analytics and agents. Headquartered in San Francisco with 30+ offices around the globe, Databricks offers a unified platform that includes Genie, Lakebase, Agent Bricks, Lakeflow, Lakehouse, and Unity Catalog. To learn more, follow Databricks on &lt;a href=&quot;https://www.linkedin.com/company/databricks&quot;&gt;LinkedIn&lt;/a&gt;, &lt;a href=&quot;https://x.com/databricks&quot;&gt;X&lt;/a&gt;, &lt;a href=&quot;https://www.youtube.com/@Databricks&quot;&gt;YouTube&lt;/a&gt;, and &lt;a href=&quot;https://www.instagram.com/databricksinc/?hl=en&quot;&gt;Instagram&lt;/a&gt;.&lt;br&gt;&lt;br&gt;&lt;strong&gt;Benefits&lt;br&gt;&lt;br&gt;&lt;/strong&gt;&lt;/span&gt;At Databricks, we strive to provide comprehensive benefits and perks that meet the needs of all of our employees. For specific details on the benefits offered in your region click &lt;a href=&quot;https://docs.google.com/document/d/154un3e8Xav4BceOSlcYFZRGEuQI54xMxVydRwQn54eQ/edit?usp=sharing&quot;&gt;here&lt;/a&gt;.&lt;br&gt;&lt;br&gt;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Our Commitment to Diversity and Inclusion&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;At Databricks, we are committed to fostering a diverse and inclusive culture where everyone can excel. We take great care to ensure that our hiring practices are inclusive and meet equal employment opportunity standards. Individuals looking for employment at Databricks are considered without regard to age, color, disability, ethnicity, family or marital status, gender identity or expression, language, national origin, physical and mental ability, political affiliation, race, religion, sexual orientation, socio-economic status, veteran status, and other protected characteristics.&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Compliance&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;If access to export-controlled technology or source code is required for performance of job duties, it is within Employer&#39;s discretion whether to apply for a U.S. government license for such positions, and Employer may decline to proceed with an applicant on this basis alone.&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;&lt;/div&gt;",
+   "departments": [
+    {
+     "id": 4003092002,
+     "name": "Enterprise Sales",
+     "child_ids": [],
+     "parent_id": 4001021002
+    }
+   ],
+   "offices": [
+    {
+     "id": 4029277002,
+     "name": "Tokyo, Japan",
+     "location": "Tokyo, Japan",
+     "child_ids": [],
+     "parent_id": 4033856002
+    }
+   ],
+   "ai_disclaimer": null,
+   "include_ai_disclaimer": null,
+   "ai_opt_out_request_url": null
+  },
+  {
+   "absolute_url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8880398002",
+   "data_compliance": [
+    {
+     "type": "gdpr",
+     "requires_consent": false,
+     "requires_processing_consent": false,
+     "requires_retention_consent": false,
+     "retention_period": null,
+     "demographic_data_consent_applies": false
+    }
+   ],
+   "internal_job_id": 6556277002,
+   "location": {
+    "name": "Seoul, South Korea"
+   },
+   "metadata": [
+    {
+     "id": 9740521002,
+     "name": "Company Assignment",
+     "value": "Databricks Korea LLC",
+     "value_type": "single_select"
+    },
+    {
+     "id": 24059030002,
+     "name": "Career Page Posting Category",
+     "value": [
+      "Sales"
+     ],
+     "value_type": "multi_select"
+    }
+   ],
+   "id": 8880398002,
+   "updated_at": "2026-11-19T16:47:39-05:00",
+   "requisition_id": "SLSQ128R18",
+   "title": "Account Executive - Digital Native",
+   "company_name": "Databricks",
+   "first_published": "2026-11-01T10:09:56-05:00",
+   "language": "en",
+   "application_deadline": null,
+   "content": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;SLSQ128R18&lt;/p&gt;\n&lt;p data-path-to-node=&quot;7&quot;&gt;As part of our accelerating growth, Databricks is looking for a dynamic Digital Native Account Executive to join our team in Seoul, Korea. In this role, your primary mission will be to identify, acquire, and expand business opportunities within Korea’s most innovative digital native companies, including high-growth startups, scale-ups, and tech unicorns.&lt;/p&gt;\n&lt;p data-path-to-node=&quot;8&quot;&gt;You know how to navigate the fast-paced buying cycles of modern engineering cultures,&lt;span class=&quot;&quot;&gt; understand complex tech stacks in-depth,&lt;/span&gt; and clearly articulate business and architectural value to both technical leaders and executive stakeholders. You will work closely with cross-functional teams and ecosystem partners to deliver tailored solutions that address high-scale data and AI challenges, closing new accounts while expanding usage within existing customers.&lt;/p&gt;\n&lt;p data-path-to-node=&quot;8&quot;&gt;You will report to the Director of Sales, Korea.&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;The impact you will have:&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;\n&lt;p data-path-to-node=&quot;10,0,0&quot;&gt;Evangelize the Databricks Data + AI Platform across the Korean Digital Native ecosystem, establishing Databricks as the foundational standard for modern data and GenAI workloads.&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p data-path-to-node=&quot;10,0,0&quot;&gt;Prospect, identify, and qualify new pipeline opportunities independently and in collaboration with the Databricks BDR team.&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p data-path-to-node=&quot;10,2,0&quot;&gt;Drive end-to-end sales motions from initial contact to contract closure, compressing decision cycles through value-driven validation.&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p data-path-to-node=&quot;10,3,0&quot;&gt;Establish strong relationships with C-level and key technical decision-makers, including CTOs, Heads of AI/ML, and VP-level Engineering and Data Architecture roles.&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p data-path-to-node=&quot;10,4,0&quot;&gt;Execute a land-and-expand strategy by driving platform consumption, identifying new high-impact data use cases, and steering renewals/upsells within won accounts.&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p data-path-to-node=&quot;10,5,0&quot;&gt;Orchestrate internal technical resources (Solutions Architects, Customer Success) and cloud ecosystem partners (AWS, Microsoft Azure, Google Cloud) to maximize sales velocity and customer value.&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p data-path-to-node=&quot;10,6,0&quot;&gt;Exceed individual activity, pipeline generation, and annual revenue targets while building a scalable territory plan.&lt;/p&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&lt;strong&gt;What we look for:&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;\n&lt;p data-path-to-node=&quot;12,0,0&quot;&gt;5+ years of software/cloud sales experience selling enterprise software, SaaS, or consumption-based PaaS solutions to the Korean market, with an emphasis on digital native/tech sector accounts.&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p data-path-to-node=&quot;12,1,0&quot;&gt;Proven track record of exceeding quota in complex sales cycles, selling data, analytics, cloud infrastructure, or AI/ML platforms.&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p data-path-to-node=&quot;12,2,0&quot;&gt;Strong command of structured sales methodologies (e.g., MEDDPICC, Value Selling, Command of the Message).&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p data-path-to-node=&quot;12,3,0&quot;&gt;Deep understanding of the Digital Native buying process, modern engineering mindsets, and developer/architect evaluation criteria.&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p data-path-to-node=&quot;12,4,0&quot;&gt;Demonstrated ability to navigate consumption/usage-based business models and partner co-selling strategies.&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p data-path-to-node=&quot;12,5,0&quot;&gt;Exceptional ability to translate complex technical architectures into compelling business outcomes.&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p data-path-to-node=&quot;12,6,0&quot;&gt;&lt;span class=&quot;&quot;&gt;Native-level fluency in Korean and professional working proficiency in English.&lt;/span&gt;&lt;/p&gt;\n&lt;/li&gt;\n&lt;/ul&gt;&lt;div class=&quot;content-conclusion&quot;&gt;&lt;p&gt;&lt;strong&gt;About Databricks&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-family: arial, sans-serif;&quot;&gt;Databricks is the Data and AI company. More than 20,000 organizations worldwide — including adidas, AT&amp;amp;T, Bayer, Block, Mastercard, Rivian, Unilever, and 70% of the Fortune 500 — rely on the Databricks Data + AI Platform to build and scale data and AI apps, analytics and agents. Headquartered in San Francisco with 30+ offices around the globe, Databricks offers a unified platform that includes Genie, Lakebase, Agent Bricks, Lakeflow, Lakehouse, and Unity Catalog. To learn more, follow Databricks on &lt;a href=&quot;https://www.linkedin.com/company/databricks&quot;&gt;LinkedIn&lt;/a&gt;, &lt;a href=&quot;https://x.com/databricks&quot;&gt;X&lt;/a&gt;, &lt;a href=&quot;https://www.youtube.com/@Databricks&quot;&gt;YouTube&lt;/a&gt;, and &lt;a href=&quot;https://www.instagram.com/databricksinc/?hl=en&quot;&gt;Instagram&lt;/a&gt;.&lt;br&gt;&lt;br&gt;&lt;strong&gt;Benefits&lt;br&gt;&lt;br&gt;&lt;/strong&gt;&lt;/span&gt;At Databricks, we strive to provide comprehensive benefits and perks that meet the needs of all of our employees. For specific details on the benefits offered in your region click &lt;a href=&quot;https://docs.google.com/document/d/154un3e8Xav4BceOSlcYFZRGEuQI54xMxVydRwQn54eQ/edit?usp=sharing&quot;&gt;here&lt;/a&gt;.&lt;br&gt;&lt;br&gt;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Our Commitment to Diversity and Inclusion&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;At Databricks, we are committed to fostering a diverse and inclusive culture where everyone can excel. We take great care to ensure that our hiring practices are inclusive and meet equal employment opportunity standards. Individuals looking for employment at Databricks are considered without regard to age, color, disability, ethnicity, family or marital status, gender identity or expression, language, national origin, physical and mental ability, political affiliation, race, religion, sexual orientation, socio-economic status, veteran status, and other protected characteristics.&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Compliance&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;If access to export-controlled technology or source code is required for performance of job duties, it is within Employer&#39;s discretion whether to apply for a U.S. government license for such positions, and Employer may decline to proceed with an applicant on this basis alone.&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;&lt;/div&gt;",
+   "departments": [
+    {
+     "id": 4003092002,
+     "name": "Enterprise Sales",
+     "child_ids": [],
+     "parent_id": 4001021002
+    }
+   ],
+   "offices": [
+    {
+     "id": 4056349002,
+     "name": "Seoul, South Korea",
+     "location": "Seoul, South Korea",
+     "child_ids": [],
+     "parent_id": 4033552002
+    }
+   ],
+   "ai_disclaimer": null,
+   "include_ai_disclaimer": null,
+   "ai_opt_out_request_url": null
+  },
+  {
+   "absolute_url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8910838002",
+   "data_compliance": [
+    {
+     "type": "gdpr",
+     "requires_consent": false,
+     "requires_processing_consent": false,
+     "requires_retention_consent": false,
+     "retention_period": null,
+     "demographic_data_consent_applies": false
+    }
+   ],
+   "internal_job_id": 6569842002,
+   "location": {
+    "name": "Seoul, South Korea"
+   },
+   "metadata": [
+    {
+     "id": 9740521002,
+     "name": "Company Assignment",
+     "value": "Databricks Korea LLC",
+     "value_type": "single_select"
+    },
+    {
+     "id": 24059030002,
+     "name": "Career Page Posting Category",
+     "value": [
+      "Sales"
+     ],
+     "value_type": "multi_select"
+    }
+   ],
+   "id": 8910838002,
+   "updated_at": "2026-11-19T16:47:39-05:00",
+   "requisition_id": "SLSQ128R130",
+   "title": "Account Executive - Enterprise Core",
+   "company_name": "Databricks",
+   "first_published": "2026-11-13T03:52:31-05:00",
+   "language": "en",
+   "application_deadline": null,
+   "content": "&lt;p data-pm-slice=&quot;1 1 []&quot;&gt;SLSQ128R130&lt;/p&gt;\n&lt;p data-path-to-node=&quot;5&quot;&gt;As an Enterprise Core Account Executive, your mission will be to nurture, retain, and systematically expand relationships across a dedicated portfolio of Databricks’ established mid-to-large enterprise accounts in Korea, spanning Financial Services (FSI), Manufacturing, Retail, and other core industries.&lt;/p&gt;\n&lt;p data-path-to-node=&quot;6&quot;&gt;This role is centered on deep account nurturing and long-term value realization within existing enterprise customers. You will act as a trusted business advisor who guides customers through their data and AI maturity journey—driving platform adoption, accelerating workload consumption, and expanding the Databricks Data + AI Platform across new business units and use cases. Working closely with Solutions Architects, and local ecosystem partners, you will turn initial deployments into mission-critical, enterprise-wide standards. You will report to the Director of Sales, Korea.&lt;/p&gt;\n&lt;p data-path-to-node=&quot;7&quot;&gt;&lt;strong data-path-to-node=&quot;7&quot; data-index-in-node=&quot;0&quot;&gt;The Impact You Will Have:&lt;/strong&gt;&lt;/p&gt;\n&lt;ul data-path-to-node=&quot;8&quot;&gt;\n&lt;li&gt;\n&lt;p data-path-to-node=&quot;8,0,0&quot;&gt;Nurture, retain, and grow total annual contract value (ACV), consumption revenue, and net revenue retention (NRR) within a portfolio of major Korean mid-to-large enterprise accounts, including leading financial institutions.&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p data-path-to-node=&quot;8,1,0&quot;&gt;Develop and execute tailored account growth and nurturing plans that align Databricks capabilities directly with each customer’s business priorities and digital transformation roadmaps.&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p data-path-to-node=&quot;8,2,0&quot;&gt;Deepen adoption within existing accounts by uncovering new data, analytics, and generative AI use cases across different departments, divisions, and affiliated entities.&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p data-path-to-node=&quot;8,3,0&quot;&gt;Build and maintain multi-threaded relationships from technical champions (Data Engineering, Platform, Architecture, and AI/ML leads) up to senior executive stakeholders (CIO, CDO, CTO, and line-of-business heads).&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p data-path-to-node=&quot;8,4,0&quot;&gt;Partner closely with Partner team, Solutions Architecture, and FDE teams to ensure smooth onboarding, high platform health, and continuous consumption growth (DBUs).&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p data-path-to-node=&quot;8,5,0&quot;&gt;Lead contract renewals, expansion proposals, and multi-year commitment structures while navigating enterprise procurement and governance requirements (including financial regulatory compliance where applicable).&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p data-path-to-node=&quot;8,6,0&quot;&gt;Collaborate closely with domestic System Integrators (SIs) and Cloud Hyperscalers (AWS, Azure, GCP) to co-deliver value and scale platform usage across your accounts.&lt;/p&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p data-path-to-node=&quot;9&quot;&gt;&lt;strong data-path-to-node=&quot;9&quot; data-index-in-node=&quot;0&quot;&gt;What We Look For:&lt;/strong&gt;&lt;/p&gt;\n&lt;ul data-path-to-node=&quot;10&quot;&gt;\n&lt;li&gt;\n&lt;p data-path-to-node=&quot;10,0,0&quot;&gt;7+ years of experience in enterprise technology sales, managing and growing mid-to-large enterprise accounts in South Korea (experience with Financial Services or regulated enterprise accounts is a strong plus).&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p data-path-to-node=&quot;10,1,0&quot;&gt;Proven track record of customer nurturing, account expansion, upselling, and closing complex multi-year cloud, PaaS, or enterprise software agreements.&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p data-path-to-node=&quot;10,2,0&quot;&gt;Strong expertise in consumption-based business models, workload migration, and guiding customers through cloud and data modernization.&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p data-path-to-node=&quot;10,3,0&quot;&gt;Proficiency in disciplined sales and account management frameworks (e.g., MEDDPICC, Value Selling, Account Planning).&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p data-path-to-node=&quot;10,4,0&quot;&gt;Demonstrated ability to orchestrate cross-functional internal teams (Pre-sales, Customer Success, FDE, Professional Services, Legal) to drive high customer satisfaction and retention.&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p data-path-to-node=&quot;10,5,0&quot;&gt;Solid experience collaborating with Korean SI partners and major cloud providers (AWS, Azure, GCP) within existing enterprise accounts.&lt;/p&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;p data-path-to-node=&quot;10,6,0&quot;&gt;Native-level fluency in Korean is required and fluent, professional business English is preferred.&lt;/p&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p data-path-to-node=&quot;12&quot;&gt;&amp;nbsp;&lt;/p&gt;&lt;div class=&quot;content-conclusion&quot;&gt;&lt;p&gt;&lt;strong&gt;About Databricks&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-family: arial, sans-serif;&quot;&gt;Databricks is the Data and AI company. More than 20,000 organizations worldwide — including adidas, AT&amp;amp;T, Bayer, Block, Mastercard, Rivian, Unilever, and 70% of the Fortune 500 — rely on the Databricks Data + AI Platform to build and scale data and AI apps, analytics and agents. Headquartered in San Francisco with 30+ offices around the globe, Databricks offers a unified platform that includes Genie, Lakebase, Agent Bricks, Lakeflow, Lakehouse, and Unity Catalog. To learn more, follow Databricks on &lt;a href=&quot;https://www.linkedin.com/company/databricks&quot;&gt;LinkedIn&lt;/a&gt;, &lt;a href=&quot;https://x.com/databricks&quot;&gt;X&lt;/a&gt;, &lt;a href=&quot;https://www.youtube.com/@Databricks&quot;&gt;YouTube&lt;/a&gt;, and &lt;a href=&quot;https://www.instagram.com/databricksinc/?hl=en&quot;&gt;Instagram&lt;/a&gt;.&lt;br&gt;&lt;br&gt;&lt;strong&gt;Benefits&lt;br&gt;&lt;br&gt;&lt;/strong&gt;&lt;/span&gt;At Databricks, we strive to provide comprehensive benefits and perks that meet the needs of all of our employees. For specific details on the benefits offered in your region click &lt;a href=&quot;https://docs.google.com/document/d/154un3e8Xav4BceOSlcYFZRGEuQI54xMxVydRwQn54eQ/edit?usp=sharing&quot;&gt;here&lt;/a&gt;.&lt;br&gt;&lt;br&gt;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Our Commitment to Diversity and Inclusion&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;At Databricks, we are committed to fostering a diverse and inclusive culture where everyone can excel. We take great care to ensure that our hiring practices are inclusive and meet equal employment opportunity standards. Individuals looking for employment at Databricks are considered without regard to age, color, disability, ethnicity, family or marital status, gender identity or expression, language, national origin, physical and mental ability, political affiliation, race, religion, sexual orientation, socio-economic status, veteran status, and other protected characteristics.&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Compliance&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;If access to export-controlled technology or source code is required for performance of job duties, it is within Employer&#39;s discretion whether to apply for a U.S. government license for such positions, and Employer may decline to proceed with an applicant on this basis alone.&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;&lt;/div&gt;",
+   "departments": [
+    {
+     "id": 4003092002,
+     "name": "Enterprise Sales",
+     "child_ids": [],
+     "parent_id": 4001021002
+    }
+   ],
+   "offices": [
+    {
+     "id": 4056349002,
+     "name": "Seoul, South Korea",
+     "location": "Seoul, South Korea",
+     "child_ids": [],
+     "parent_id": 4033552002
+    }
+   ],
+   "ai_disclaimer": null,
+   "include_ai_disclaimer": null,
+   "ai_opt_out_request_url": null
+  }
+ ],
+ "meta": {
+  "total": 889
+ }
+}

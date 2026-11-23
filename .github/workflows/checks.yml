@@ -1,0 +1,45 @@
+# Phase 0 early checks, run by hand from the Actions tab. Results land in the job log.
+#   embed     fastembed inside a container limited like Render Free (512 MB, 0.1 CPU)
+#   llm       strict-JSON batch extraction on each extraction model, and one tool call
+name: Early checks
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  embed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+      - name: Measure fastembed under 512 MB / 0.1 CPU
+        run: |
+          docker run -d --name probe -v "$PWD/backend/scripts/checks:/work" python:3.12-slim sleep infinity
+          docker exec probe pip install --quiet fastembed
+          docker exec probe python -c "from fastembed import TextEmbedding; TextEmbedding('BAAI/bge-small-en-v1.5')"
+          docker update --memory=512m --memory-swap=512m --cpus=0.1 probe
+          docker exec probe python /work/embed_memory.py
+
+  llm:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: backend
+    env:
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v10.3.3
+        with:
+          version: "0.11.2"
+          enable-cache: true
+      - run: uv sync --locked
+      - name: Extraction models return strict JSON
+        run: uv run python -m scripts.checks.extract_check
+      - name: Agent model calls a tool
+        run: uv run python -m scripts.checks.toolcall_check
