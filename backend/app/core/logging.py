@@ -70,6 +70,8 @@ def configure_logging(level: str = "INFO", json_logs: bool = True) -> None:
     root.addHandler(handler)
     root.setLevel(level)
 
+    # httpx logs every request at INFO; batch jobs make thousands. Keep its warnings only.
+    logging.getLogger("httpx").setLevel(logging.WARNING)
     # uvicorn installs its own plain-text handlers. Remove them so its lines reach our handler.
     for name in ("uvicorn", "uvicorn.error"):
         uvicorn_logger = logging.getLogger(name)

@@ -170,6 +170,7 @@ def parse_ashby(payload: dict[str, Any]) -> list[RawPosting]:
 
 
 _PARSERS = {"greenhouse": parse_greenhouse, "lever": parse_lever, "ashby": parse_ashby}
+ATS_ORDER: tuple[Ats, ...] = ("greenhouse", "lever", "ashby")
 
 
 def fetch_board(

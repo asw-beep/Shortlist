@@ -1,0 +1,571 @@
+# Candidate companies for board discovery. One per line; "Name | slug1, slug2" to give exact
+# slugs. discover_boards.py keeps a board only if it has an India or open-remote posting.
+
+# Fintech and payments
+Razorpay
+CRED
+Zeta
+Groww
+Zerodha
+PhonePe
+Paytm
+Juspay
+Cashfree | cashfree, cashfreepayments
+PayU
+BharatPe
+Pine Labs | pinelabs
+Slice | slice, sliceit
+Jupiter | jupiter, jupitermoney
+Fi Money | fi, fimoney, epifi
+Niyo
+OneCard | onecard, fpl
+Navi
+Jar | jar, jarapp
+INDmoney | indmoney
+smallcase
+Upstox
+Angel One | angelone
+Dhan
+CoinDCX
+CoinSwitch
+Mudrex
+Acko
+Digit Insurance | godigit
+PolicyBazaar
+Turtlemint
+Ditto Insurance | joinditto
+Plum | plum, plumhq
+Onsurity
+Rupeek
+Lendingkart
+Khatabook
+OkCredit
+Vyapar
+Instamojo
+Signzy
+IDfy
+Perfios
+M2P Fintech | m2p, m2pfintech
+Yubi | yubi, go-yubi
+Open Financial | open, bankopen
+FamPay | fampay
+Setu
+Simpl | simpl, getsimpl
+Clear | clear, cleartax
+Kotak 811 | kotak811
+Wise
+Revolut
+Stripe
+Coinbase
+Plaid
+Kraken
+# Commerce, consumer, logistics
+Meesho
+Swiggy
+Zomato
+Zepto
+Blinkit
+Flipkart
+Myntra
+Rapido
+Dunzo
+BigBasket
+Nykaa
+Lenskart
+Urban Company | urbancompany
+ShareChat
+Dream11
+Games24x7
+MPL | mpl, mobilepremierleague
+Glance
+InMobi
+Dailyhunt
+Pratilipi
+Pocket FM | pocketfm
+Kuku FM | kukufm
+STAGE OTT | stage
+Udaan
+Jumbotail
+Licious
+FreshToHome
+Country Delight | countrydelight
+Rebel Foods | rebelfoods
+Shiprocket
+Delhivery
+Porter
+BlackBuck
+LogiNext
+Locus | locus, locus-sh
+Ninjacart
+DeHaat
+Spinny
+CARS24 | cars24
+CarDekho
+OYO | oyo, oyorooms
+MakeMyTrip
+ixigo
+NoBroker
+Livspace
+HomeLane
+Pepperfry
+Mamaearth | honasa
+boAt | boat, imaginemarketing
+Bewakoof
+Zetwerk
+Moglix
+OfBusiness
+Infra.Market | inframarket
+ElasticRun
+Captain Fresh | captainfresh
+Bizongo
+Vegrow
+Rentomojo
+Furlenco
+Yulu
+Bounce
+Ather Energy | atherenergy
+Ola Electric | olaelectric
+Ola Krutrim | krutrim
+Uber
+Airbnb
+Booking.com | bookingcom
+Expedia
+Agoda
+Grab
+Gojek
+Instacart
+DoorDash
+# Education and careers
+Unacademy
+upGrad
+Physics Wallah | pw, physicswallah
+BYJU'S | byjus
+Vedantu
+Eruditus
+Scaler | scaler, interviewbit
+Classplus
+Teachmint
+LEAD School | leadschool
+Simplilearn
+Great Learning | greatlearning
+Masai School | masai, masaischool
+Newton School | newtonschool
+GeeksforGeeks
+HackerRank
+HackerEarth
+Coding Ninjas | codingninjas
+Testbook
+Adda247
+Cuemath
+Leap Finance | leap, leapfinance
+Leverage Edu | leverageedu
+Apna | apna, apnatime
+WorkIndia
+Instahyre
+Turing
+Toptal
+# B2B SaaS and developer tools (India-founded)
+Postman | postman, postmanlabs
+BrowserStack
+Freshworks
+Zoho
+Chargebee
+Druva
+Innovaccer
+Icertis
+Darwinbox
+Leena AI | leena, leenaai
+Uniphore
+Yellow.ai | yellowai, yellow
+Haptik
+Gupshup
+Exotel
+MoEngage
+CleverTap
+WebEngage
+Netcore Cloud | netcore
+Whatfix
+Mindtickle
+HighRadius
+Hasura
+Atlan
+Hevo Data | hevodata, hevo
+RudderStack | rudderstack, rudderlabs
+Zluri
+Signeasy
+Kissflow
+Rocketlane
+Zenduty
+SuprSend
+Nanonets
+Infilect
+Toplyne
+Bureau | bureau, bureauid
+Sprinklr
+Observe.AI | observeai
+Mad Street Den | madstreetden, vue
+Tracxn
+Ultrahuman
+Fitterfly
+Qure.ai | qureai, qure
+SigTuple
+Practo
+PharmEasy
+Tata 1mg | 1mg, tata1mg
+HealthifyMe
+cult.fit | curefit, cultfit
+Sarvam AI | sarvam, sarvamai
+Neysa
+E2E Networks | e2enetworks
+Fractal | fractal, fractalanalytics
+Tiger Analytics | tigeranalytics
+LatentView | latentview
+Sigmoid
+Quantiphi
+Mu Sigma | musigma
+Thoughtworks
+Nagarro
+Publicis Sapient | publicissapient
+Zinnov
+Capillary Technologies | capillary
+Amagi
+Kaleyra
+Ozonetel
+Servify
+Zype
+Jiraaf
+Apollo.io | apolloio, apollo
+Postscript
+# Global companies with India engineering
+Databricks
+Snowflake
+MongoDB
+Elastic
+Confluent
+HashiCorp
+GitLab
+Cloudflare
+Twilio
+Okta
+Zscaler
+CrowdStrike
+Rubrik
+Nutanix
+Harness | harness, harnessinc
+Glean | glean, gleanwork
+Atlassian
+Rippling
+Deel
+Remote | remote, remotecom
+Notion
+Figma
+Canva
+Spotify
+JumpCloud
+BrightEdge
+Palantir
+Dropbox
+Robinhood
+Discord
+Airtable
+Asana
+Miro
+Zendesk
+Intercom
+HubSpot
+Datadog
+New Relic | newrelic
+PagerDuty
+Sentry
+Grafana Labs | grafanalabs
+Vercel
+Supabase
+PostHog
+Linear
+Retool
+Replit
+OpenAI
+Anthropic
+Perplexity
+ElevenLabs
+Cohere
+Hugging Face | huggingface
+Scale AI | scaleai
+Weights & Biases | wandb
+Pinecone
+Weaviate
+Qdrant
+Zilliz
+Nvidia
+AMD
+Arm
+Qualcomm
+Intuit
+PayPal
+Visa
+Mastercard
+American Express | americanexpress
+Goldman Sachs | goldmansachs
+JPMorgan Chase | jpmorganchase
+Morgan Stanley | morganstanley
+D. E. Shaw | deshaw
+Tower Research Capital | towerresearchcapital
+Graviton Research Capital | graviton
+Quadeye
+Optiver
+IMC Trading | imc
+Jane Street | janestreet
+Citadel
+Two Sigma | twosigma
+Squarepoint Capital | squarepoint
+Myntra
+Walmart Global Tech | walmart
+Target
+Lowe's | lowes
+Wayfair
+eBay
+Adobe
+Salesforce
+ServiceNow
+Workday
+SAP
+Oracle
+VMware
+Cisco
+Juniper Networks | juniper
+Arista Networks | arista
+Microsoft
+Google
+Amazon
+Meta
+Apple
+LinkedIn
+Uber
+Lyft
+Pinterest
+Reddit
+Snap
+X | twitter
+Shopify
+Square | block
+Chime
+SoFi
+Affirm
+Brex
+Ramp
+Mercury
+Gusto
+Carta
+Toast
+Navan
+Coupa
+Freshpaint
+Mixpanel
+Amplitude
+Segment
+Algolia
+Contentful
+Strapi
+Appsmith
+Tooljet
+Plane | plane, makeplane
+SigNoz
+Middleware
+Keploy
+Requestly
+Unstop
+Internshala
+# Remote-first and globally distributed teams
+Canonical
+Wikimedia Foundation | wikimedia
+Mozilla
+Mattermost
+Sourcegraph
+Hotjar
+Buffer
+Ghost
+Doist
+Toggl
+Zapier
+Automattic
+Docker
+Redis
+Couchbase
+Neo4j
+Yugabyte | yugabyte, yugabytedb
+Cockroach Labs | cockroachlabs
+Aerospike
+Cohesity
+Commvault
+Pure Storage | purestorage
+NetApp
+Temporal | temporal, temporaltechnologies
+Tailscale
+Fly.io | flyio
+Render | render, renderdotcom
+Railway | railway
+Netlify
+Hasura
+Prisma
+PlanetScale
+Neon | neon, neondatabase
+Turso
+Clerk
+Auth0
+WorkOS
+Stytch
+Sanity
+Webflow
+Framer
+Loom
+Calendly
+Typeform
+Pitch
+Grammarly
+Duolingo
+Coursera
+Udemy
+Khan Academy | khanacademy
+Chegg
+Quizlet
+GitHub
+Atlassian
+Elastic
+Gemini | gemini, geminitrust
+Circle
+Ripple
+Paxos
+MoonPay
+Phantom
+Fireblocks
+Chainalysis
+Ledger
+Consensys
+Alchemy
+Polygon | polygon, polygonlabs, polygontechnology
+Chainlink Labs | chainlinklabs
+Mysten Labs | mystenlabs
+Aptos | aptos, aptoslabs
+NEAR | near, nearfoundation
+Uniswap | uniswap, uniswaplabs
+OpenSea
+Dune
+Nansen
+Messari
+Kraken
+Bitso
+OKX
+Anchorage Digital | anchorage
+Figure AI | figureai, figure
+Mistral AI | mistral
+Together AI | togetherai, together
+Fireworks AI | fireworksai
+Groq
+Cerebras | cerebrassystems, cerebras
+SambaNova | sambanovasystems
+Modal | modal
+Baseten
+Replicate
+Runway | runwayml, runway
+Midjourney
+Stability AI | stabilityai
+Character.AI | character
+Adept
+Harvey
+Cursor | cursor, anysphere
+Codeium | codeium, windsurf
+Sierra | sierra
+Decagon
+Writer
+Jasper
+Notion
+Coda
+ClickUp
+Monday.com | mondaydotcom
+Smartsheet
+Freshdesk
+Zoom
+RingCentral
+Dialpad
+Aircall
+Gong
+Outreach
+Salesloft
+Highspot
+Seismic
+Clari
+6sense
+Demandbase
+ZoomInfo
+Sprout Social | sproutsocial
+Hootsuite
+Brevo | brevo, sendinblue
+Postmark
+SendGrid
+Mailchimp
+Klaviyo
+Braze
+Iterable
+Customer.io | customerio
+Optimizely
+LaunchDarkly
+Split
+Statsig
+Heap
+FullStory
+LogRocket
+Pendo
+Gainsight
+Totango
+ChurnZero
+Productboard
+Aha | aha
+Mural
+Lucid | lucid, lucidsoftware
+Smallpdf
+DigitalOcean
+Linode
+Vultr
+OVHcloud | ovh
+Hetzner
+Backblaze
+Wasabi
+Fastly
+Akamai
+Imperva
+Cloudinary
+ImageKit | imagekit
+Mux
+Agora
+100ms | 100ms
+LiveKit
+Daily | daily, dailyco
+Stream | stream, getstream
+Sendbird
+Twilio
+Vonage
+Plivo
+Exotel
+Razorpay | razorpay, razorpaysoftwareprivatelimited
+Zepto | zepto, zeptonow, kiranakart
+Swiggy | swiggy, bundl
+Myntra | myntra, myntradesigns
+PhonePe | phonepe, phonepeprivatelimited
+Postman | postman, postmanlabs, postman-inc
+CRED | cred, dreamplug
+Dream11 | dream11, dreamsports, dreamsportsgroup
+Zomato | zomato, eternal
+Ola | ola, olacabs, anitechnologies
+Nykaa | nykaa, fsnecommerce
+Lenskart | lenskart, lenskartsolutions
+upGrad | upgrad, upgradeducation
+Unacademy | unacademy, sortinghat
+Freshworks | freshworks, freshworksinc
+Zoho | zoho, zohocorp
+Chargebee | chargebee, chargebeeinc
+BrowserStack | browserstack, browserstackinc
+Innovaccer | innovaccer, innovaccerinc
+Icertis | icertis, icertisinc
+Darwinbox | darwinbox, darwinboxdigital
+Sprinklr | sprinklr, sprinklrinc
+InMobi | inmobi, inmobitechnologies

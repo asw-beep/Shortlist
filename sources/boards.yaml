@@ -1,0 +1,129 @@
+# Discovered 2026-11-23 by backend/scripts/discover_boards.py;
+# validate with `uv run python -m app.cli check-boards`. Edit by hand freely.
+- {company: 100ms, ats: lever, slug: 100ms}
+- {company: 6sense, ats: greenhouse, slug: 6sense}
+- {company: Agoda, ats: greenhouse, slug: agoda}
+- {company: Airbnb, ats: greenhouse, slug: airbnb}
+- {company: Alchemy, ats: ashby, slug: alchemy}
+- {company: Amplitude, ats: ashby, slug: amplitude}
+- {company: Anthropic, ats: greenhouse, slug: anthropic}
+- {company: Apollo.io, ats: greenhouse, slug: apolloio}
+- {company: Asana, ats: greenhouse, slug: asana}
+- {company: Atlan, ats: ashby, slug: atlan}
+- {company: Backblaze, ats: greenhouse, slug: backblaze}
+- {company: Baseten, ats: ashby, slug: baseten}
+- {company: Bounce, ats: ashby, slug: bounce}
+- {company: Brevo, ats: lever, slug: brevo}
+- {company: BrightEdge, ats: lever, slug: brightedge}
+- {company: Buffer, ats: ashby, slug: buffer}
+- {company: Bureau, ats: ashby, slug: bureau}
+- {company: Cerebras, ats: ashby, slug: cerebras}
+- {company: Circle, ats: ashby, slug: circle}
+- {company: Cohere, ats: ashby, slug: cohere}
+- {company: Coinbase, ats: greenhouse, slug: coinbase}
+- {company: Commvault, ats: greenhouse, slug: commvault}
+- {company: Coupa, ats: lever, slug: coupa}
+- {company: Coursera, ats: greenhouse, slug: coursera}
+- {company: CRED, ats: lever, slug: cred}
+- {company: Cursor, ats: ashby, slug: cursor}
+- {company: Databricks, ats: greenhouse, slug: databricks}
+- {company: Datadog, ats: greenhouse, slug: datadog}
+- {company: Decagon, ats: ashby, slug: decagon}
+- {company: Demandbase, ats: ashby, slug: demandbase}
+- {company: Discord, ats: greenhouse, slug: discord}
+- {company: Druva, ats: greenhouse, slug: druva}
+- {company: Duolingo, ats: greenhouse, slug: duolingo}
+- {company: Elastic, ats: greenhouse, slug: elastic}
+- {company: ElevenLabs, ats: ashby, slug: elevenlabs}
+- {company: FamPay, ats: lever, slug: fampay}
+- {company: Fastly, ats: greenhouse, slug: fastly}
+- {company: Fi Money, ats: lever, slug: fi}
+- {company: Figma, ats: greenhouse, slug: figma}
+- {company: FullStory, ats: ashby, slug: fullstory}
+- {company: Gainsight, ats: ashby, slug: gainsight}
+- {company: GitLab, ats: greenhouse, slug: gitlab}
+- {company: Glance, ats: greenhouse, slug: glance}
+- {company: Glean, ats: greenhouse, slug: gleanwork}
+- {company: Grafana Labs, ats: greenhouse, slug: grafanalabs}
+- {company: Groww, ats: greenhouse, slug: groww}
+- {company: HackerRank, ats: greenhouse, slug: hackerrank}
+- {company: Harness, ats: greenhouse, slug: harnessinc}
+- {company: Harvey, ats: ashby, slug: harvey}
+- {company: Hevo Data, ats: lever, slug: hevodata}
+- {company: HighRadius, ats: greenhouse, slug: highradius}
+- {company: Hootsuite, ats: greenhouse, slug: hootsuite}
+- {company: IMC Trading, ats: greenhouse, slug: imc}
+- {company: InMobi, ats: greenhouse, slug: inmobi}
+- {company: Intercom (Fin), ats: greenhouse, slug: intercom}
+- {company: Iterable, ats: ashby, slug: iterable}
+- {company: JumpCloud, ats: lever, slug: jumpcloud}
+- {company: LaunchDarkly, ats: greenhouse, slug: launchdarkly}
+- {company: Linear, ats: ashby, slug: linear}
+- {company: LiveKit, ats: ashby, slug: livekit}
+- {company: Meesho, ats: lever, slug: meesho}
+- {company: Mindtickle, ats: lever, slug: mindtickle}
+- {company: Mixpanel, ats: greenhouse, slug: mixpanel}
+- {company: MongoDB, ats: greenhouse, slug: mongodb}
+- {company: MoonPay, ats: lever, slug: moonpay}
+- {company: Mozilla, ats: greenhouse, slug: mozilla}
+- {company: Mural, ats: ashby, slug: mural}
+- {company: Mysten Labs, ats: ashby, slug: mystenlabs}
+- {company: Neo4j, ats: greenhouse, slug: neo4j}
+- {company: Neon, ats: ashby, slug: neon}
+- {company: Netlify, ats: greenhouse, slug: netlify}
+- {company: New Relic, ats: greenhouse, slug: newrelic}
+- {company: Notion, ats: ashby, slug: notion}
+- {company: Observe.AI, ats: greenhouse, slug: observeai}
+- {company: Okta, ats: greenhouse, slug: okta}
+- {company: OKX, ats: greenhouse, slug: okx}
+- {company: OpenAI, ats: ashby, slug: openai}
+- {company: Outreach, ats: lever, slug: outreach}
+- {company: Paxos, ats: ashby, slug: paxos}
+- {company: Paytm, ats: lever, slug: paytm}
+- {company: Pendo, ats: greenhouse, slug: pendo}
+- {company: Perplexity, ats: ashby, slug: perplexity}
+- {company: Phantom, ats: ashby, slug: phantom}
+- {company: Plaid, ats: ashby, slug: plaid}
+- {company: Plane, ats: ashby, slug: plane}
+- {company: PlanetScale, ats: greenhouse, slug: planetscale}
+- {company: Pocket FM, ats: lever, slug: pocketfm}
+- {company: PostHog, ats: ashby, slug: posthog}
+- {company: Postscript, ats: greenhouse, slug: postscript}
+- {company: Pure Storage, ats: greenhouse, slug: purestorage}
+- {company: Railway, ats: ashby, slug: railway}
+- {company: Ramp, ats: ashby, slug: ramp}
+- {company: Razorpay, ats: greenhouse, slug: razorpaysoftwareprivatelimited}
+- {company: Redis, ats: ashby, slug: redis}
+- {company: Replit, ats: ashby, slug: replit}
+- {company: Rubrik, ats: greenhouse, slug: rubrik}
+- {company: Salesloft, ats: greenhouse, slug: salesloft}
+- {company: SambaNova, ats: greenhouse, slug: sambanovasystems}
+- {company: Sarvam AI, ats: ashby, slug: sarvam}
+- {company: Scale AI, ats: greenhouse, slug: scaleai}
+- {company: Sentry, ats: ashby, slug: sentry}
+- {company: Sigmoid, ats: greenhouse, slug: sigmoid}
+- {company: SigNoz, ats: ashby, slug: signoz}
+- {company: Smartsheet, ats: greenhouse, slug: smartsheet}
+- {company: Snowflake, ats: ashby, slug: snowflake}
+- {company: Spotify, ats: lever, slug: spotify}
+- {company: Stability AI, ats: greenhouse, slug: stabilityai}
+- {company: Stream, ats: ashby, slug: stream}
+- {company: Stripe, ats: greenhouse, slug: stripe}
+- {company: Supabase, ats: ashby, slug: supabase}
+- {company: Temporal, ats: ashby, slug: temporal}
+- {company: Toast, ats: greenhouse, slug: toast}
+- {company: Together AI, ats: greenhouse, slug: togetherai}
+- {company: Tower Research Capital, ats: greenhouse, slug: towerresearchcapital}
+- {company: Turing, ats: greenhouse, slug: turing}
+- {company: Twilio, ats: greenhouse, slug: twilio}
+- {company: Vercel, ats: greenhouse, slug: vercel}
+- {company: Vonage, ats: greenhouse, slug: vonage}
+- {company: Vultr, ats: ashby, slug: vultr}
+- {company: Webflow, ats: ashby, slug: webflow}
+- {company: Wikimedia Foundation, ats: greenhouse, slug: wikimedia}
+- {company: Yugabyte, ats: greenhouse, slug: yugabyte}
+- {company: Zapier, ats: ashby, slug: zapier}
+- {company: Zeta, ats: lever, slug: zeta}
+- {company: Zinnov, ats: greenhouse, slug: zinnov}
+- {company: ZoomInfo, ats: greenhouse, slug: zoominfo}
+- {company: Zscaler, ats: greenhouse, slug: zscaler}
