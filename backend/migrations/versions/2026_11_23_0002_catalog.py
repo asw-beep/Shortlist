@@ -148,7 +148,8 @@ def upgrade() -> None:
             "search_tsv",
             postgresql.TSVECTOR(),
             sa.Computed(
-                "setweight(to_tsvector('english', coalesce(title, '')), 'A') || setweight(to_tsvector('english', coalesce(summary_text, '')), 'B')",
+                "setweight(to_tsvector('english', coalesce(title, '')), 'A') || "
+                "setweight(to_tsvector('english', coalesce(summary_text, '')), 'B')",
                 persisted=True,
             ),
             nullable=False,
