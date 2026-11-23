@@ -17,11 +17,13 @@ from app.core.config import Settings, get_settings
 from app.core.logging import configure_logging
 from app.db.engine import create_db_engine
 from app.db.session import create_session_factory
+from app.embed.model import FastEmbedder
+from app.embed.service import run_embedding
 from app.extract.service import run_extraction, seed_skills
 from app.extract.taxonomy import SkillMatcher
 from app.ingest.ats import Ats, BoardFetchError, RawPosting, fetch_board
 from app.ingest.boards import BoardSpec, load_boards_file, sync_boards
-from app.ingest.service import run_ingest
+from app.ingest.service import purge_closed, run_ingest
 from app.llm.chain import build_chain
 from app.tracing.spans import DbSpanSink
 
@@ -79,11 +81,33 @@ def cmd_extract(settings: Settings) -> int:
     return 0
 
 
+def cmd_embed(settings: Settings) -> int:
+    session_factory = create_session_factory(create_db_engine(settings))
+    # The batch worker has cores to spare, unlike the API: let ONNX pick (all cores).
+    embedder = FastEmbedder(settings.embed_model, settings.embed_cache_dir, threads=None)
+    with session_factory() as db:
+        count = run_embedding(db, embedder)
+    log.info("embed.done", embedded=count)
+    return 0
+
+
+def cmd_pipeline(settings: Settings) -> int:
+    for step in (cmd_ingest, cmd_extract, cmd_embed):
+        step(settings)
+    session_factory = create_session_factory(create_db_engine(settings))
+    with session_factory() as db:
+        purged = purge_closed(db, now=datetime.now(UTC))
+    log.info("pipeline.done", purged=purged)
+    return 0
+
+
 COMMANDS: dict[str, Callable[[Settings], int]] = {
     "ingest": cmd_ingest,
     "check-boards": cmd_check_boards,
     "seed-skills": cmd_seed_skills,
     "extract": cmd_extract,
+    "embed": cmd_embed,
+    "pipeline": cmd_pipeline,
 }
 
 

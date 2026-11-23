@@ -58,3 +58,33 @@ def echo_requirements(**overrides: Any) -> Handler:
         return {"items": [{"id": pid, **base} for pid in posting_ids(messages)]}
 
     return handler
+
+
+class FakeEmbedder:
+    """Deterministic 384-d vectors from hashed lowercase words: shared words, higher cosine."""
+
+    dim = 384
+
+    def __init__(self) -> None:
+        self.documents: list[str] = []
+        self.queries: list[str] = []
+
+    @staticmethod
+    def vector(text: str) -> list[float]:
+        import hashlib
+        import math
+
+        values = [0.0] * 384
+        for word in re.findall(r"[a-z0-9+#.]+", text.lower()):
+            digest = hashlib.sha256(word.encode()).digest()
+            values[int.from_bytes(digest[:4], "big") % 384] += 1.0
+        norm = math.sqrt(sum(v * v for v in values)) or 1.0
+        return [v / norm for v in values]
+
+    def embed_documents(self, texts: list[str]) -> list[list[float]]:
+        self.documents.extend(texts)
+        return [self.vector(t) for t in texts]
+
+    def embed_query(self, text: str) -> list[float]:
+        self.queries.append(text)
+        return self.vector(text)
