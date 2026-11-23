@@ -1,0 +1,247 @@
+# Hand-kept rules on top of O*NET's "Hot Technologies" list (see README.md).
+# build_taxonomy.py reads onet_hot_tech.txt, keeps the categories below, drops `drop`,
+# renames with `rename`, adds every skill in `skills` with its aliases, and writes skills.yaml.
+
+# O*NET commodity titles that describe engineering tools. Office, email, CAD, ERP and similar
+# categories are left out entirely.
+include_categories:
+  - Analytical or scientific software
+  - Application server software
+  - Business intelligence and data analysis software
+  - Cloud-based management software
+  - Data base management system software
+  - Data base user interface and query software
+  - Development environment software
+  - Enterprise application integration software
+  - File versioning software
+  - Object or component oriented development software
+  - Operating system software
+  - Web platform development software
+  - Network operation system enhancement software
+  - Configuration management software
+  - Program testing software
+  - Network security and virtual private network VPN equipment software
+  - Transaction security and virus protection software
+  - Platform interconnectivity software
+  - Web page creation and editing software
+
+# O*NET names that are not engineering skills, or too vague to match on.
+drop:
+  - Adobe Acrobat
+  - Adobe After Effects
+  - Apple Safari
+  - Asana
+  - Facebook
+  - Google Analytics
+  - HubSpot software
+  - Kronos Workforce Timekeeper
+  - Marketo Marketing Automation
+  - Microsoft Access
+  - Microsoft Edge
+  - Microsoft Project
+  - Microsoft SharePoint
+  - Microsoft Teams
+  - Microsoft Visio
+  - Microsoft Power Automate
+  - Mozilla Firefox
+  - Oracle Primavera Enterprise Project Portfolio Management
+  - Procore software
+  - Slack
+  - TikTok
+  - Yardi software
+  - ESRI ArcGIS software
+  - Border Gateway Protocol BGP
+  - Microsoft Windows
+  - WordPress
+
+# O*NET name -> the name job postings use.
+rename:
+  Alteryx software: Alteryx
+  Amazon DynamoDB: DynamoDB
+  Amazon Elastic Compute Cloud EC2: AWS EC2
+  Amazon Web Services AWS CloudFormation: AWS CloudFormation
+  Amazon Web Services AWS software: AWS
+  Ansible software: Ansible
+  Apache Airflow: Airflow
+  Apache Cassandra: Cassandra
+  Apache Hadoop: Hadoop
+  Apache Hive: Hive
+  Apache Kafka: Kafka
+  Apache Maven: Maven
+  Apache Spark: Spark
+  Apache Subversion SVN: SVN
+  Apache Tomcat: Tomcat
+  Apple iOS: iOS
+  Apple macOS: macOS
+  Atlassian Bitbucket: Bitbucket
+  Atlassian Confluence: Confluence
+  Atlassian JIRA: Jira
+  Cascading style sheets CSS: CSS
+  Eclipse IDE: Eclipse
+  Extensible markup language XML: XML
+  Google Android: Android
+  Google Angular: Angular
+  Hibernate ORM: Hibernate
+  Hypertext markup language HTML: HTML
+  IBM DB2: DB2
+  IBM SPSS Statistics: SPSS
+  IBM Terraform: Terraform
+  IBM WebSphere MQ: IBM MQ
+  Informatica software: Informatica
+  Jenkins CI: Jenkins
+  JavaScript Object Notation JSON: JSON
+  Microsoft .NET Framework: .NET
+  Microsoft ASP.NET: ASP.NET
+  Microsoft Active Directory: Active Directory
+  Microsoft Active Server Pages ASP: Classic ASP
+  Microsoft Azure software: Azure
+  Microsoft Power BI: Power BI
+  Microsoft PowerShell: PowerShell
+  Microsoft SQL Server: SQL Server
+  Microsoft SQL Server Integration Services SSIS: SSIS
+  Microsoft SQL Server Reporting Services SSRS: SSRS
+  Microsoft Team Foundation Server: Azure DevOps Server
+  Microsoft Visual Basic: Visual Basic
+  Microsoft Visual Basic for Applications VBA: VBA
+  Microsoft Visual Studio: Visual Studio
+  Microsoft Windows Server: Windows Server
+  Oracle Cloud software: Oracle Cloud
+  Oracle Database: Oracle Database
+  Oracle Java: Java
+  Oracle Java 2 Platform Enterprise Edition J2EE: Java EE
+  Oracle PL/SQL: PL/SQL
+  Oracle SQL Developer: SQL Developer
+  Red Hat Enterprise Linux: RHEL
+  Red Hat OpenShift: OpenShift
+  Splunk Enterprise: Splunk
+  Structured query language SQL: SQL
+  Teradata Database: Teradata
+  The MathWorks MATLAB: MATLAB
+  UNIX Shell: Shell scripting
+  UNIX: Unix
+  Shell script: Shell scripting
+
+# Canonical skill -> aliases (matched case-insensitively unless listed in case_sensitive).
+# Also adds skills O*NET does not list. A skill here with no O*NET entry is still kept.
+skills:
+  Python: [python3]
+  Java: []
+  JavaScript: [JS, ecmascript]
+  TypeScript: []
+  Go: [golang]
+  Rust: []
+  C: []
+  C++: [cpp]
+  C#: [csharp]
+  .NET: [dotnet, .net core]
+  ASP.NET: [asp.net core]
+  Kotlin: []
+  Swift: []
+  Scala: []
+  Ruby: []
+  Ruby on Rails: [Rails]
+  PHP: []
+  Perl: []
+  R: []
+  SQL: []
+  PL/SQL: [plsql]
+  Bash: []
+  Shell scripting: [shell script, shell scripts, unix shell]
+  Node.js: [nodejs, node js, Node]
+  React: [react.js, reactjs]
+  React Native: []
+  Next.js: [nextjs]
+  Angular: [angularjs, angular.js]
+  Vue.js: [vue, vuejs]
+  Svelte: []
+  Redux: []
+  HTML: [html5]
+  CSS: [css3]
+  Tailwind CSS: [tailwind, tailwindcss]
+  jQuery: []
+  Bootstrap: []
+  Django: []
+  Flask: []
+  FastAPI: []
+  Spring Boot: [springboot]
+  Spring Framework: []
+  Express.js: [Express, expressjs]
+  NestJS: [nest.js]
+  GraphQL: []
+  REST APIs: [rest api, restful, rest apis, restful apis]
+  gRPC: []
+  Microservices: [microservice, micro-services]
+  PostgreSQL: [postgres, psql]
+  MySQL: []
+  SQLite: []
+  MongoDB: [mongo]
+  Redis: []
+  Cassandra: []
+  DynamoDB: [amazon dynamodb]
+  Elasticsearch: [elastic search, opensearch]
+  Snowflake: []
+  Amazon Redshift: [redshift]
+  BigQuery: [google bigquery]
+  NoSQL: []
+  Kafka: [apache kafka]
+  RabbitMQ: []
+  Spark: [pyspark, apache spark]
+  Hadoop: []
+  Airflow: [apache airflow]
+  dbt: []
+  AWS: [amazon web services]
+  AWS EC2: [ec2]
+  AWS Lambda: [Lambda]
+  AWS S3: [s3]
+  Azure: [microsoft azure]
+  GCP: [google cloud, google cloud platform]
+  Docker: [containers, containerization]
+  Kubernetes: [k8s]
+  Terraform: []
+  Ansible: []
+  Jenkins: []
+  GitHub Actions: []
+  CI/CD: [ci cd, continuous integration, continuous delivery]
+  Git: []
+  GitHub: []
+  GitLab: []
+  Linux: []
+  Unix: []
+  Prometheus: []
+  Grafana: []
+  Nginx: []
+  Machine Learning: [ML]
+  Deep Learning: []
+  PyTorch: [torch]
+  TensorFlow: []
+  Keras: []
+  scikit-learn: [sklearn, scikit learn]
+  XGBoost: []
+  Pandas: []
+  NumPy: []
+  Hugging Face: [huggingface, transformers]
+  LLMs: [llm, large language models, large language model]
+  RAG: [retrieval augmented generation, retrieval-augmented generation]
+  LangChain: []
+  NLP: [natural language processing]
+  Computer Vision: [opencv]
+  Generative AI: [genai, gen ai]
+  MLOps: []
+  Data Structures and Algorithms: [data structures, dsa]
+  System Design: [distributed systems]
+  Tableau: []
+  Power BI: [powerbi]
+  Excel: [microsoft excel]
+  Android: []
+  iOS: []
+  Flutter: []
+  Selenium: []
+  JUnit: []
+  Pytest: []
+  Jest: []
+  Figma: []
+  Jira: []
+
+# Terms matched with exact case, because their lowercase form is an ordinary English word
+# ("go live", "react quickly", "swift delivery", "spark interest") or a single letter.
+case_sensitive: [Go, R, C, Swift, Spark, React, Rust, Express, Node, Lambda, ML, JS, Rails, Excel]
