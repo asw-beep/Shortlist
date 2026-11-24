@@ -92,6 +92,39 @@ FOREIGN: dict[str, str] = {
     "japan": "JP",
     "tokyo": "JP",
     "brazil": "BR",
+    "colombia": "CO",
+    "argentina": "AR",
+    "chile": "CL",
+    "peru": "PE",
+    "sweden": "SE",
+    "norway": "NO",
+    "denmark": "DK",
+    "finland": "FI",
+    "switzerland": "CH",
+    "austria": "AT",
+    "belgium": "BE",
+    "italy": "IT",
+    "portugal": "PT",
+    "czech republic": "CZ",
+    "romania": "RO",
+    "ukraine": "UA",
+    "turkey": "TR",
+    "south africa": "ZA",
+    "nigeria": "NG",
+    "kenya": "KE",
+    "egypt": "EG",
+    "saudi arabia": "SA",
+    "south korea": "KR",
+    "korea": "KR",
+    "china": "CN",
+    "hong kong": "HK",
+    "taiwan": "TW",
+    "vietnam": "VN",
+    "indonesia": "ID",
+    "malaysia": "MY",
+    "thailand": "TH",
+    "new zealand": "NZ",
+    "latam": "XL",
     "mexico": "MX",
     "poland": "PL",
     "spain": "ES",
@@ -153,6 +186,24 @@ def _country(part: str) -> str | None:
     return None
 
 
+def _title_country(title: str) -> str | None:
+    """A country named as the last part of a title: "… - Sweden", "… (Remote, Brazil)".
+
+    Only a part that is exactly a place counts, so "Software Engineer, US Payments" names none.
+    """
+    tail = re.split(r"\s[-–—|]\s", title)[-1]
+    pieces = (
+        re.sub(r"\bremote\b", " ", p, flags=re.I).strip(" .").lower()
+        for p in re.split(r"[,()]", tail)
+    )
+    place = next((p for p in reversed(list(pieces)) if p), "")
+    if place in FOREIGN:
+        return FOREIGN[place]
+    if place in INDIA_WORDS or any(place in spellings for spellings in INDIAN_CITIES.values()):
+        return "IN"
+    return None
+
+
 def parse_location(raw: str, *, is_remote_flag: bool | None = None) -> Location:
     """Country, canonical Indian city and remote scope from a free-text location.
 
@@ -195,7 +246,7 @@ _SOFTWARE = re.compile(
 # "Engineer" in these titles means a customer-facing or non-software role.
 _CUSTOMER_FACING = re.compile(
     r"customer success|\bsales\b|account (executive|manager)|\bsupport\b|recruit|marketing|"
-    r"solutions consultant",
+    r"solutions (consultant|engineer)|implementation (engineer|consultant|specialist)",
     re.I,
 )
 _INTERN = re.compile(r"\bintern(ship)?\b|\bco-?op\b|apprentice|trainee", re.I)
@@ -274,6 +325,21 @@ def is_relevant(
     )
 
 
+def _with_title_country(location: Location, title: str) -> Location:
+    """The location field wins; the title fills in a country it left out."""
+    if location.country is not None:
+        return location
+    country = _title_country(title)
+    if country is None:
+        return location
+    scope = location.remote_scope
+    if scope == "remote_global":
+        scope = "remote_country"
+    elif scope == "unknown":
+        scope = "onsite"
+    return Location(country, None, scope)
+
+
 def extract_rules(
     title: str,
     location_raw: str,
@@ -295,7 +361,9 @@ def extract_rules(
         is_internship=seniority == "intern",
         is_new_grad=seniority == "new_grad",
         min_years=years,
-        location=parse_location(location_raw, is_remote_flag=is_remote_flag),
+        location=_with_title_country(
+            parse_location(location_raw, is_remote_flag=is_remote_flag), title
+        ),
         skills=skills,
         confident=confident,
         title_skills=matcher.match(title),

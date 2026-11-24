@@ -132,3 +132,53 @@ def test_customer_facing_titles_are_not_engineering(title: str) -> None:
 def test_title_skills_kept_apart_from_description_skills() -> None:
     f = extract_rules("Python Developer", "", "Experience with k8s", M)
     assert f.title_skills == {"Python"} and f.skills == {"Python", "Kubernetes"}
+
+
+@pytest.mark.parametrize(
+    "title",
+    [
+        "Enterprise Solutions Engineer",
+        "Solutions Architect",
+        "Pre-Sales Engineer",
+        "Implementation Engineer",
+        "Technical Account Manager",
+    ],
+)
+def test_presales_and_implementation_titles_are_customer_facing(title: str) -> None:
+    assert extract_rules(title, "Remote", "", M).role_family == "other"
+
+
+@pytest.mark.parametrize(
+    ("title", "country"),
+    [
+        ("Enterprise Solutions Engineer - Sweden", "SE"),
+        ("Backend Engineer (Remote, Brazil)", "BR"),
+        ("Software Engineer – Colombia", "CO"),
+        ("Platform Engineer | Germany", "DE"),
+    ],
+)
+def test_country_named_at_the_end_of_the_title(title: str, country: str) -> None:
+    location = extract_rules(title, "Remote", "", M).location
+    assert (location.country, location.remote_scope, location.city) == (
+        country,
+        "remote_country",
+        None,
+    )
+
+
+@pytest.mark.parametrize(
+    "title", ["Software Engineer, US Payments", "Backend Engineer - Payments", "Engineer (L4)"]
+)
+def test_title_words_that_are_not_a_place_are_ignored(title: str) -> None:
+    location = extract_rules(title, "Remote", "", M).location
+    assert (location.country, location.remote_scope) == (None, "remote_global")
+
+
+def test_location_field_wins_over_the_title() -> None:
+    location = extract_rules("Software Engineer - Sweden", "Bengaluru, India", "", M).location
+    assert (location.country, location.city) == ("IN", "Bengaluru")
+
+
+def test_india_at_the_end_of_the_title() -> None:
+    location = extract_rules("Backend Engineer - India (Remote)", "Remote", "", M).location
+    assert (location.country, location.remote_scope) == ("IN", "remote_country")

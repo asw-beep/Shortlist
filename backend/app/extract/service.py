@@ -30,7 +30,7 @@ from app.extract.taxonomy import SkillMatcher
 from app.llm.base import JsonLLM, LLMError, LLMQuotaExhausted
 
 # Bump when extraction logic changes enough that stored features should be redone.
-EXTRACTOR_VERSION = 1
+EXTRACTOR_VERSION = 2  # 2: countries named in titles, presales titles
 
 
 @dataclass
