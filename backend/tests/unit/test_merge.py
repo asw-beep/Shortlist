@@ -2,6 +2,8 @@
 
 from decimal import Decimal
 
+import pytest
+
 from app.core.config import REPO_ROOT
 from app.extract.llm import JobRequirements
 from app.extract.merge import merge_features
@@ -83,3 +85,15 @@ def test_merge_intern_title_wins_over_llm() -> None:
 def test_merge_recomputes_relevance() -> None:
     assert merge_features(rules(), llm(min_years=2), M).relevant is True
     assert merge_features(rules(), llm(min_years=5), M).relevant is False
+
+
+@pytest.mark.parametrize("years", [150, 99.96, 30.5, -1])
+def test_merge_ignores_impossible_years_from_the_llm(years: float) -> None:
+    """numeric(3,1) can't hold them, and no internship asks for them: keep the rules' value."""
+    final = merge_features(rules(min_years=Decimal("2")), llm(min_years=years), M)
+    assert final.min_years == Decimal("2")
+
+
+def test_merge_keeps_plausible_years_from_the_llm() -> None:
+    final = merge_features(rules(min_years=None), llm(min_years=2.5), M)
+    assert final.min_years == Decimal("2.5")

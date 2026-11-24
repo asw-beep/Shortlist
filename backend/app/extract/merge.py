@@ -48,6 +48,16 @@ def _canonical(names: list[str], matcher: SkillMatcher) -> tuple[set[str], set[s
     return known, unknown
 
 
+MAX_YEARS = 30  # beyond any real posting, and inside the column's numeric(3,1)
+
+
+def _plausible_years(llm_years: float | None, rules_years: Decimal | None) -> Decimal | None:
+    """The LLM's figure when it is a believable number of years; otherwise the rules' value."""
+    if llm_years is None or not 0 <= llm_years <= MAX_YEARS:
+        return rules_years
+    return Decimal(str(round(llm_years, 1)))
+
+
 def merge_features(
     rules: RuleFeatures, llm: JobRequirements | None, matcher: SkillMatcher
 ) -> FinalFeatures:
@@ -66,7 +76,7 @@ def merge_features(
             seniority = "new_grad"
         else:
             seniority = llm.seniority if llm.seniority != "unknown" else rules.seniority
-        min_years = Decimal(str(llm.min_years)) if llm.min_years is not None else rules.min_years
+        min_years = _plausible_years(llm.min_years, rules.min_years)
         required, unknown_req = _canonical(llm.required_skills, matcher)
         nice, unknown_nice = _canonical(llm.nice_to_have_skills, matcher)
         required |= rules.title_skills

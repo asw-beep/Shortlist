@@ -176,3 +176,25 @@ def test_llm_calls_recorded_as_spans(db: Session) -> None:
     db.commit()
     [row] = db.scalars(select(Span).where(Span.kind == "llm")).all()
     assert (row.name, row.model, row.status) == ("job_requirements_batch", "fake:model", "ok")
+
+
+def test_new_features_are_embedded_again(db: Session) -> None:
+    """A posting embedded from rules-only features gets a new vector once the LLM fills them in
+    (the document text is built from the features, not only from the posting's content)."""
+    from app.embed.service import run_embedding
+    from tests.fakes import FakeEmbedder
+
+    posting = relevant_posting(db)
+    run_extraction(db, FakeLLM([LLMError("down")]), M)
+    assert run_embedding(db, FakeEmbedder()) == 1
+    assert run_embedding(db, FakeEmbedder()) == 0
+    run_extraction(db, FakeLLM(echo_requirements(summary="Build payment APIs in Go.")), M)
+    assert run_embedding(db, FakeEmbedder()) == 1
+    db.refresh(posting)
+    assert posting.embedded_hash == posting.content_hash
+
+
+def test_impossible_years_from_the_llm_do_not_stop_the_run(db: Session) -> None:
+    posting = relevant_posting(db)
+    summary = run_extraction(db, FakeLLM(echo_requirements(min_years=150)), M)
+    assert summary.llm == 1 and features(db, posting).min_years is None

@@ -178,3 +178,5 @@ def _store(
 
     posting.summary_text = " ".join(filter(None, [posting.title, company, final.summary]))
     posting.processed_hash = posting.content_hash
+    # The embedded text is built from these features, so new features need a new vector.
+    posting.embedded_hash = None
