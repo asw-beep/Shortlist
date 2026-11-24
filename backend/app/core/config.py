@@ -9,7 +9,7 @@ from functools import lru_cache
 from pathlib import Path
 from typing import Literal, Self
 
-from pydantic import SecretStr, model_validator
+from pydantic import SecretStr, field_validator, model_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 # The repository root: relative data paths (config/, taxonomy/, sources/) resolve against it.
@@ -92,6 +92,14 @@ class Settings(BaseSettings):
     @property
     def deployed(self) -> bool:
         return self.environment in ("staging", "production")
+
+    @field_validator("groq_api_key", "gemini_api_key", "brevo_api_key", mode="before")
+    @classmethod
+    def _blank_means_unset(cls, value: object) -> object:
+        """An unset GitHub secret or an empty Render variable arrives as "": treat it as absent."""
+        if isinstance(value, str) and not value.strip():
+            return None
+        return value
 
     @model_validator(mode="after")
     def _check_secrets(self) -> Self:

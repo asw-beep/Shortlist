@@ -279,3 +279,13 @@ def test_deployed_frontend_url_must_be_absolute_https(url: str) -> None:
             feedback_link_secret=GOOD,
             frontend_url=url,
         )
+
+
+@pytest.mark.parametrize("name", ["GROQ_API_KEY", "GEMINI_API_KEY", "BREVO_API_KEY"])
+def test_blank_service_keys_mean_not_set(monkeypatch, name: str) -> None:
+    """An unset GitHub secret or an empty Render variable arrives as "": treat it as absent,
+    so the app falls back (rules-only extraction, no résumé import, no email) instead of
+    calling a provider with an empty key."""
+    monkeypatch.setenv(name, "  ")
+    settings = Settings(_env_file=None, environment="test")
+    assert getattr(settings, name.lower()) is None
