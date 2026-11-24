@@ -57,3 +57,20 @@ def test_loading_twice_is_idempotent(db: Session, tmp_path: Path) -> None:
     path = tmp_path / "corpus.jsonl.gz"
     export_snapshot(db, path)
     assert load_snapshot(db, path) == 0  # already there
+
+
+def test_replace_makes_the_catalog_exactly_the_snapshot(db: Session, tmp_path: Path) -> None:
+    """Evals must search the snapshot the report names, not a mix with an earlier one."""
+    kept = job(db, "Python Backend Intern", company="Acme")
+    path = tmp_path / "corpus.jsonl.gz"
+    export_snapshot(db, path)
+    stray = job(db, "Go Backend Intern", company="Stray")
+    db.get(PostingFeatures, kept.id).summary = "edited after the snapshot"
+    db.flush()
+
+    assert load_snapshot(db, path, replace=True) == 1
+
+    db.expire_all()
+    assert set(db.scalars(select(Posting.id))) == {kept.id}
+    assert db.get(Posting, stray.id) is None
+    assert db.get(PostingFeatures, kept.id).summary != "edited after the snapshot"

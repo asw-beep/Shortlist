@@ -141,7 +141,7 @@ class EvalContext:
         matcher = SkillMatcher.from_yaml(settings.repo_path(settings.taxonomy_path))
         try:
             with Session(engine, expire_on_commit=False) as db:
-                load_snapshot(db, Path(snapshot))
+                load_snapshot(db, Path(snapshot), replace=True)  # exactly this snapshot
                 profiles = load_profiles()
                 users = {pid: ensure_user(db, matcher, p) for pid, p in profiles.items()}
                 db.commit()

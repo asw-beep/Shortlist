@@ -2,7 +2,8 @@
 
 A snapshot is gzipped JSON lines. The first line is a header (when it was taken); every other
 line is one posting with its company, board, features and skills. Loading is idempotent:
-postings already present (same id) are skipped, companies, boards and skills are reused.
+postings already present (same id) are skipped, companies, boards and skills are reused,
+unless replace=True, which empties the catalog first.
 
 Snapshots hold companies' job-description text, so they stay out of git; reports record each
 snapshot's SHA-256 instead.
@@ -17,11 +18,19 @@ from decimal import Decimal
 from pathlib import Path
 from typing import Any
 
-from sqlalchemy import Column, DateTime, Numeric, Uuid, select
+from sqlalchemy import Column, DateTime, Numeric, Uuid, delete, select
 from sqlalchemy.dialects.postgresql import insert
 from sqlalchemy.orm import Session
 
-from app.catalog.models import Board, Company, Posting, PostingFeatures, PostingSkill, Skill
+from app.catalog.models import (
+    Board,
+    BoardRun,
+    Company,
+    Posting,
+    PostingFeatures,
+    PostingSkill,
+    Skill,
+)
 
 POSTING_SKIP = {"board_id", "search_tsv"}
 FEATURES_SKIP = {"posting_id"}
@@ -106,9 +115,20 @@ def _id(db: Session, statement: Any, lookup: Any) -> uuid.UUID:
     return db.scalar(lookup)
 
 
-def load_snapshot(db: Session, path: Path) -> int:
-    """Insert the snapshot's postings that are not already present; returns how many."""
+def load_snapshot(db: Session, path: Path, *, replace: bool = False) -> int:
+    """Insert the snapshot's postings that are not already present; returns how many.
+
+    replace=True first empties the catalog (postings, boards, companies and everything hanging
+    off them, interactions included), so the database holds exactly this snapshot. Evals use it:
+    a report must describe the snapshot it names, not a mix with an earlier load. Skills stay.
+    """
     _, postings = read_snapshot(path)
+    if replace:
+        db.execute(delete(Posting))  # features, posting skills and interactions cascade
+        db.execute(delete(BoardRun))
+        db.execute(delete(Board))
+        db.execute(delete(Company))
+        db.flush()
     loaded = 0
     for item in postings:
         posting_id = uuid.UUID(item["id"])
