@@ -260,3 +260,38 @@ def test_stopword_query_has_no_keyword_leg(db: Session) -> None:
     [result] = run(db, profile(db), query="the of and")
     assert result.posting_id == posting.id  # dense alone still retrieves
     assert result.factors["rrf"] == pytest.approx(0.5)  # rank 1 in one list of two
+
+
+def test_postings_of_disabled_boards_leave_the_feed(db: Session) -> None:
+    """A board disabled after repeated failures, or removed from boards.yaml, is no longer
+    fetched, so its postings can never collect misses and close; search must drop them."""
+    live = job(db, "Python Backend Intern", company="Live")
+    dead = job(db, "Python Backend Intern", company="Dead")
+    db.get(Board, dead.board_id).enabled = False
+    db.flush()
+    results = ids(run(db, profile(db)))
+    assert live.id in results and dead.id not in results
+
+
+def test_dismissing_a_role_hides_its_twin(db: Session) -> None:
+    """The feed shows one of two copies of a role; dismissing it must not surface the other."""
+    shown = job(db, "Python Backend Intern", company="Twin")
+    other_board = make_board(db, db.get(Company, db.get(Board, shown.board_id).company_id))
+    twin = job(db, "python backend intern", board=other_board)
+    uid = profile(db)
+    [first] = [r for r in run(db, uid) if r.title.lower() == "python backend intern"]
+    dismissed = shown if first.posting_id == shown.id else twin
+    interact(db, uid, dismissed, "dismissed")
+    assert not [r for r in run(db, uid) if r.title.lower() == "python backend intern"]
+
+
+def test_excluded_ids_also_exclude_reposts_of_the_same_role(db: Session) -> None:
+    sent = job(db, "Python Backend Intern", company="Repost")
+    repost = job(
+        db,
+        "Python Backend Intern",
+        board=db.get(Board, sent.board_id),
+        first_seen_at=NOW - timedelta(hours=1),
+    )
+    results = ids(run(db, profile(db), exclude_ids=[sent.id]))
+    assert sent.id not in results and repost.id not in results

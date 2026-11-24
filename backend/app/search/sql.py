@@ -15,6 +15,18 @@ from app.catalog.models import EMBEDDING_DIM
 
 REMOTE = "('remote_country', 'remote_global')"
 
+# One role = one company, one title (any case), one place. The feed shows each role once, and a
+# dismissal, an application or an exclusion applies to every posting of that role: a twin on
+# another board, or a repost under a new id.
+OTHER_COPY_OF_THIS_ROLE = """
+    FROM postings p2
+    JOIN boards b2 ON b2.id = p2.board_id
+    JOIN posting_features f2 ON f2.posting_id = p2.id
+    WHERE b2.company_id = b.company_id
+      AND lower(p2.title) = lower(p.title)
+      AND coalesce(f2.city, f2.remote_scope) = coalesce(f.city, f.remote_scope)
+"""
+
 WEIGHTED = (
     ":w_skill * f_skill + :w_rrf * f_rrf + :w_experience * f_experience"
     " + :w_location * f_location + :w_recency * f_recency + :w_personal * f_personal"
@@ -48,6 +60,8 @@ eligible AS (
     JOIN boards b ON b.id = p.board_id
     JOIN companies c ON c.id = b.company_id
     WHERE p.status = 'open' AND f.relevant AND p.embedding IS NOT NULL
+      -- a disabled board is no longer fetched, so its postings could never close
+      AND b.enabled
       AND f.role_family = ANY(CAST(:roles AS text[]))
       AND (f.seniority = ANY(CAST(:seniority AS text[])) OR f.seniority = 'unknown')
       AND (
@@ -59,11 +73,15 @@ eligible AS (
       AND NOT (lower(c.name) = ANY(CAST(:avoid AS text[]))
                OR c.slug = ANY(CAST(:avoid AS text[])))
       AND NOT EXISTS (
-            SELECT 1 FROM interactions i
-            WHERE i.user_id = :user_id AND i.posting_id = p.id
-              AND i.kind IN ('dismissed', 'applied'))
+            SELECT 1 {OTHER_COPY_OF_THIS_ROLE}
+              AND EXISTS (
+                    SELECT 1 FROM interactions i
+                    WHERE i.user_id = :user_id AND i.posting_id = p2.id
+                      AND i.kind IN ('dismissed', 'applied')))
       AND (CAST(:since AS timestamptz) IS NULL OR p.first_seen_at > CAST(:since AS timestamptz))
-      AND NOT (p.id = ANY(CAST(:exclude AS uuid[])))
+      AND NOT EXISTS (
+            SELECT 1 {OTHER_COPY_OF_THIS_ROLE}
+              AND p2.id = ANY(CAST(:exclude AS uuid[])))
 ),
 dense AS (
     SELECT id, row_number() OVER (ORDER BY embedding <=> CAST(:qvec AS vector), id) AS rank
