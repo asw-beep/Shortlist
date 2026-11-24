@@ -62,6 +62,9 @@ export function LoginPage() {
         </div>
       </form>
       <p className="muted">
+        <Link to="/forgot-password">Forgot your password?</Link>
+      </p>
+      <p className="muted">
         Have an invite code? <Link to="/register">Create your account</Link>
       </p>
     </section>

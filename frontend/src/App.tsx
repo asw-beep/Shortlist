@@ -3,9 +3,11 @@ import { useAuth } from "./auth/AuthProvider";
 import { GuestOnly, RequireSession } from "./components/Guards";
 import { Layout } from "./components/Layout";
 import { FeedPage } from "./pages/FeedPage";
+import { ForgotPasswordPage } from "./pages/ForgotPasswordPage";
 import { LoginPage } from "./pages/LoginPage";
 import { ProfilePage } from "./pages/ProfilePage";
 import { RegisterPage } from "./pages/RegisterPage";
+import { ResetPasswordPage } from "./pages/ResetPasswordPage";
 import { SavedPage } from "./pages/SavedPage";
 import { ApiUnavailablePage, HomeRedirect, NotFoundPage } from "./pages/StatusPages";
 import { ThanksPage } from "./pages/ThanksPage";
@@ -25,6 +27,9 @@ export function App() {
           <Route path="/" element={<HomeRedirect />} />
           <Route path="/login" element={guest(<LoginPage />)} />
           <Route path="/register" element={guest(<RegisterPage />)} />
+          <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+          {/* The emailed link lands here; the token rides after "#". */}
+          <Route path="/reset-password" element={<ResetPasswordPage />} />
           <Route path="/feed" element={member(<FeedPage />)} />
           <Route path="/saved" element={member(<SavedPage />)} />
           <Route path="/profile" element={member(<ProfilePage />)} />
