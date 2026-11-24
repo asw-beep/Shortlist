@@ -1,5 +1,7 @@
 .superpowers/
 .env
+.env.*
+!.env.example
 .venv/
 __pycache__/
 *.pyc
@@ -13,3 +15,4 @@ frontend/playwright-report/
 # Evaluation snapshots hold companies' job-description text: keep them local.
 backend/evals/data/*.jsonl.gz
 backend/evals/ranking/pool.jsonl
+.neon
