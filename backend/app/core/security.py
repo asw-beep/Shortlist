@@ -13,6 +13,7 @@ Three kinds of secret, three treatments:
 
 import hashlib
 import secrets
+import threading
 import uuid
 from dataclasses import dataclass
 from datetime import UTC, datetime, timedelta
@@ -32,16 +33,24 @@ from app.core.config import Settings
 PASSWORD_HASHER = PasswordHasher.from_parameters(profiles.RFC_9106_LOW_MEMORY)
 _hasher = PASSWORD_HASHER
 
+# The API runs in 512 MB. Unbounded, a burst of logins (or of guesses at unknown emails, which
+# burn a hash too) would stack 64 MiB per hash until the process is killed. Two at a time keeps
+# the worst case near 128 MiB; the rest wait their turn.
+MAX_CONCURRENT_HASHES = 2
+_hash_slots = threading.BoundedSemaphore(MAX_CONCURRENT_HASHES)
+
 
 def hash_password(password: str) -> str:
     """The PHC string: algorithm, parameters, salt and hash in one value, e.g.
     $argon2id$v=19$m=65536,t=3,p=4$<salt>$<hash>. Verification reads the parameters from it."""
-    return _hasher.hash(password)
+    with _hash_slots:
+        return _hasher.hash(password)
 
 
 def verify_password(password_hash: str, password: str) -> bool:
     try:
-        return _hasher.verify(password_hash, password)
+        with _hash_slots:
+            return _hasher.verify(password_hash, password)
     except (VerificationError, InvalidHashError):  # wrong password, or not an Argon2 hash
         return False
 
@@ -56,7 +65,7 @@ def password_needs_rehash(password_hash: str) -> bool:
 
 @cache
 def _dummy_hash() -> str:
-    return _hasher.hash(secrets.token_urlsafe(16))
+    return hash_password(secrets.token_urlsafe(16))
 
 
 def burn_password_check(password: str) -> None:

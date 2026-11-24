@@ -193,6 +193,7 @@ def test_the_refresh_cookie_is_secure_everywhere_but_a_laptop(
         environment=environment,
         jwt_secret_key="s" * 48,
         feedback_link_secret=DEPLOYED_LINK_SECRET,
+        frontend_url="https://shortlist.pages.dev",
     )
 
     assert settings.cookie_secure is secure
@@ -204,6 +205,7 @@ def test_production_accepts_its_own_secret() -> None:
         environment="production",
         jwt_secret_key="s" * 48,
         feedback_link_secret=DEPLOYED_LINK_SECRET,
+        frontend_url="https://shortlist.pages.dev",
     )
 
     assert settings.jwt_secret_key.get_secret_value() == "s" * 48
@@ -212,3 +214,68 @@ def test_production_accepts_its_own_secret() -> None:
 def test_production_refuses_the_built_in_link_secret() -> None:
     with pytest.raises(ValueError, match="FEEDBACK_LINK_SECRET"):
         Settings(_env_file=None, environment="production", jwt_secret_key="s" * 48)
+
+
+def test_at_most_two_password_hashes_run_at_once(monkeypatch) -> None:
+    """Each Argon2 hash takes 64 MiB; unbounded overlap would push a 512 MB instance over."""
+    import threading
+    import time
+
+    from app.core import security
+
+    running, peak, lock = 0, 0, threading.Lock()
+
+    class SlowHasher:
+        def hash(self, password: str) -> str:
+            nonlocal running, peak
+            with lock:
+                running += 1
+                peak = max(peak, running)
+            time.sleep(0.05)
+            with lock:
+                running -= 1
+            return "hash"
+
+        def verify(self, password_hash: str, password: str) -> bool:
+            self.hash(password)
+            return True
+
+    monkeypatch.setattr(security, "_hasher", SlowHasher())
+    threads = [threading.Thread(target=security.hash_password, args=("pw",)) for _ in range(4)]
+    threads += [
+        threading.Thread(target=security.verify_password, args=("h", "pw")) for _ in range(4)
+    ]
+    for thread in threads:
+        thread.start()
+    for thread in threads:
+        thread.join()
+    assert peak == security.MAX_CONCURRENT_HASHES == 2
+
+
+GOOD = "x" * 40
+
+
+@pytest.mark.parametrize("link_secret", ["", "short-secret"])
+def test_a_short_link_secret_is_refused(link_secret: str) -> None:
+    """An empty GitHub secret arrives as "": digests would be signed with a key anyone knows."""
+    with pytest.raises(ValidationError, match="FEEDBACK_LINK_SECRET"):
+        Settings(
+            _env_file=None,
+            environment="production",
+            jwt_secret_key=GOOD,
+            feedback_link_secret=link_secret,
+            frontend_url="https://shortlist.pages.dev",
+        )
+
+
+@pytest.mark.parametrize("url", ["", "shortlist.pages.dev", "http://shortlist.pages.dev"])
+def test_deployed_frontend_url_must_be_absolute_https(url: str) -> None:
+    """Digest links and reset emails are built from it; relative or http links break or leak."""
+    with pytest.raises(ValidationError, match="FRONTEND_URL"):
+        Settings(
+            _env_file=None,
+            environment="production",
+            jwt_secret_key=GOOD,
+            feedback_link_secret=GOOD,
+            frontend_url=url,
+        )

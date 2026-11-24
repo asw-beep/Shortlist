@@ -100,10 +100,20 @@ class Settings(BaseSettings):
             raise ValueError("JWT_SECRET_KEY must be at least 32 bytes long")
         if self.deployed and secret == LOCAL_JWT_SECRET:
             raise ValueError(f"set JWT_SECRET_KEY: the built-in key is not for {self.environment}")
-        if self.deployed and self.feedback_link_secret.get_secret_value() == LOCAL_LINK_SECRET:
-            raise ValueError(
-                f"set FEEDBACK_LINK_SECRET: the built-in key is not for {self.environment}"
-            )
+        if self.deployed:
+            link_secret = self.feedback_link_secret.get_secret_value()
+            if link_secret == LOCAL_LINK_SECRET:
+                raise ValueError(
+                    f"set FEEDBACK_LINK_SECRET: the built-in key is not for {self.environment}"
+                )
+            # An unset GitHub secret arrives as "", which would sign links with a known key.
+            if len(link_secret.encode()) < 32:
+                raise ValueError("FEEDBACK_LINK_SECRET must be at least 32 bytes long")
+            if not self.frontend_url.startswith("https://"):
+                raise ValueError(
+                    "FRONTEND_URL must be the app's absolute https:// address when deployed"
+                    " (digest and password-reset links are built from it)"
+                )
         return self
 
 
