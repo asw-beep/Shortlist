@@ -10,6 +10,7 @@ from app.db.base import Base, UUIDPrimaryKey, one_of
 
 INTERACTION_KINDS = ("shown", "clicked", "saved", "dismissed", "applied")
 UNIQUE_KINDS = ("saved", "dismissed", "applied")
+UNIQUE_PREDICATE = "kind IN ('saved', 'dismissed', 'applied')"
 SURFACES = ("feed", "digest", "chat")
 
 
@@ -25,7 +26,7 @@ class Interaction(UUIDPrimaryKey, Base):
             "posting_id",
             "kind",
             unique=True,
-            postgresql_where=text("kind IN ('saved', 'dismissed', 'applied')"),
+            postgresql_where=text(UNIQUE_PREDICATE),
         ),
         Index("ix_interactions_user_id_created_at", "user_id", "created_at"),
     )

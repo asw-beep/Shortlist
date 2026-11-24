@@ -11,12 +11,12 @@ from typing import Literal
 
 import numpy as np
 from pgvector.sqlalchemy import Vector
-from sqlalchemy import delete, func, select, update
+from sqlalchemy import delete, func, select, text, update
 from sqlalchemy.dialects.postgresql import insert
 from sqlalchemy.orm import Session
 
 from app.catalog.models import EMBEDDING_DIM, Posting
-from app.feedback.models import UNIQUE_KINDS, Interaction
+from app.feedback.models import UNIQUE_KINDS, UNIQUE_PREDICATE, Interaction
 from app.profiles.models import Profile
 from app.search.service import RankedJob
 
@@ -44,7 +44,9 @@ def record(
     if kind in UNIQUE_KINDS:
         statement = statement.on_conflict_do_nothing(
             index_elements=["user_id", "posting_id", "kind"],
-            index_where=Interaction.kind.in_(UNIQUE_KINDS),
+            # A literal predicate: Postgres matches the partial unique index by its WHERE, and a
+            # bound parameter stops matching once the statement is prepared and planned generically.
+            index_where=text(UNIQUE_PREDICATE),
         )
     inserted = db.execute(statement.returning(Interaction.id)).first()
     return inserted is not None

@@ -220,3 +220,14 @@ def test_link_for_a_deleted_user_is_invalid(api: TestClient, db: Session) -> Non
     posting = job(db, "Python Backend Intern")
     response = api.get(link(api, uuid.uuid4(), posting.id, "save"), follow_redirects=False)
     assert response.status_code == 400 and problem_code(response) == "invalid-link"
+
+
+def test_many_saves_on_one_connection(db: Session) -> None:
+    """psycopg prepares a statement after 5 runs and Postgres soon plans it generically; the
+    ON CONFLICT predicate must still match the partial unique index (a bound parameter fails)."""
+    uid = profile(db)
+    postings = [job(db, f"Python Backend Intern {i}") for i in range(15)]
+    for posting in postings:
+        assert record(db, user_id=uid, posting_id=posting.id, kind="saved", surface="feed")
+    assert record(db, user_id=uid, posting_id=postings[0].id, kind="saved", surface="feed") is False
+    assert count(db, uid, "saved") == 15
