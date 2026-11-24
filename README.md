@@ -32,7 +32,7 @@ search by chat.
                                      │ /api/* proxied, same origin (no CORS)
                        ┌─────────────┴────────────┐
                        │ React (Vite) on Cloudflare│  Feed · Saved · Profile
-                       │ Pages + Pages Function    │  (waits while Render wakes)
+                       │ Worker + static assets    │  (waits while Render wakes)
                        └──────────────────────────┘
 ```
 
@@ -71,8 +71,8 @@ been done yet; results will appear in `docs/evaluation/` with n, intervals and t
 |---|---|---|
 | Postgres + pgvector | Neon, region `aws-ap-southeast-1` | 0.5 GB storage; compute sleeps when idle |
 | API (FastAPI) | Render web service from `render.yaml` (Docker, Singapore) | 512 MB, 0.1 CPU, sleeps after 15 idle minutes |
-| Web app | Cloudflare Pages, root `frontend`, build `npm run build`, output `dist` | none that bite |
-| `/api/*` proxy | Pages Function `frontend/functions/api/[[path]].ts` | retries GETs for ~63 s while Render wakes |
+| Web app | Cloudflare Worker with static assets (`frontend/wrangler.json`), root `frontend`, build `npm run build` | none that bite |
+| `/api/*` proxy | `frontend/worker/index.ts` → `frontend/functions/api/[[path]].ts` (also works as a Pages Function) | retries GETs for ~63 s while Render wakes |
 | Pipeline, every 6 h | GitHub Actions `pipeline.yml` | free on public repos |
 | Weekly digest, Mon 09:00 IST | GitHub Actions `digest.yml` | |
 | Email | Brevo HTTP API (Render blocks SMTP) | 300 emails a day |
@@ -118,9 +118,11 @@ Tests: `cd backend && uv run pytest` (integration tests need the database; set
 3. **Render.** New → Blueprint → this repo. Fill in the `sync: false` variables:
    `DATABASE_URL` (pooled), `DIRECT_DATABASE_URL` (direct), `JWT_SECRET_KEY`,
    `FEEDBACK_LINK_SECRET`, `GROQ_API_KEY`, `BREVO_API_KEY`, `EMAIL_FROM_ADDRESS`, `FRONTEND_URL`
-   (the Pages URL from step 4). The container migrates the database on every start.
-4. **Cloudflare Pages.** Connect the repo. Root directory `frontend`, build command
-   `npm run build`, output `dist`, environment variable `API_ORIGIN=https://<service>.onrender.com`.
+   (the Cloudflare URL from step 4). The container migrates the database on every start.
+4. **Cloudflare.** Workers & Pages → Create → import the repo as a Worker named `shortlist`.
+   Root directory `frontend`, build command `npm run build`, deploy command
+   `npx wrangler deploy`. `frontend/wrangler.json` serves `dist/` with an index.html fallback,
+   runs the Worker for `/api/*`, and sets `API_ORIGIN` (edit it to your Render URL).
 5. **GitHub secrets** (Settings → Secrets → Actions): `DATABASE_URL` (the **direct** URL; batch
    jobs run long), `GEMINI_API_KEY`, `GROQ_API_KEY`, `BREVO_API_KEY`, `FEEDBACK_LINK_SECRET` (the
    same value as on Render, or digest links fail), `JWT_SECRET_KEY`, `EMAIL_FROM_ADDRESS`,
