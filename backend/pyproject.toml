@@ -27,6 +27,7 @@ dependencies = [
 dev = [
     "httpx2>=2.16.2",
     "pytest>=9.2.0",
+    "ranx>=0.3.21",
     "ruff>=0.17.5",
 ]
 

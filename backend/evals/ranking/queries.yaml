@@ -1,0 +1,11 @@
+# Free-text queries per profile id (spec §7.2). Every profile also gets a feed query with no
+# text, added automatically, so 2 lines here give 3 queries per profile.
+s01:
+  - backend python internship
+  - machine learning engineer intern
+s02:
+  - computer vision intern
+  - llm research internship
+s03:
+  - data analyst intern sql
+  - business intelligence

@@ -1,0 +1,26 @@
+# Student profiles for the ranking evaluation (spec §7.2). Target: 15, at least 5 from
+# classmates who agreed to be included (use an id, never a name). Fields as in PUT /profile;
+# cities must be ones Shortlist recognises.
+- id: s01
+  target_roles: [software, ml]
+  years_experience: 0.5
+  locations: [Thiruvananthapuram, Kochi, Bengaluru]
+  open_to_relocate: true
+  remote_ok: true
+  skills: {Python: 3, FastAPI: 3, PostgreSQL: 2, Docker: 2, PyTorch: 2, C++: 2}
+
+- id: s02 # example archetype: ML-leaning, Bengaluru only
+  target_roles: [ml]
+  years_experience: 0
+  locations: [Bengaluru]
+  open_to_relocate: false
+  remote_ok: true
+  skills: {Python: 3, PyTorch: 3, TensorFlow: 2, SQL: 2}
+
+- id: s03 # example archetype: data, anywhere in India
+  target_roles: [data]
+  years_experience: 0
+  locations: []
+  open_to_relocate: true
+  remote_ok: true
+  skills: {SQL: 3, Python: 2, Tableau: 2, Excel: 2}
