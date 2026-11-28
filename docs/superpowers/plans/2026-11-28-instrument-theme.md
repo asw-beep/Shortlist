@@ -1,6 +1,6 @@
 # Instrument Theme Implementation Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+Work the tasks in order; steps use checkboxes (`- [ ]`) for tracking.
 
 **Goal:** Restyle every page of the web app in the Instrument look, ship it, and put screenshots and GIFs of every page in the README.
 
@@ -20,7 +20,7 @@ Playwright driving the installed Chrome.
 - No copy changes, except a "Match" caption on the score readout.
 - The existing tests query by role and text. They must pass unchanged.
 - Key travel and meter light-up are the only motion, and both stop under `prefers-reduced-motion: reduce`.
-- No AI attribution anywhere committed (no co-author trailer, no tool names, no claude.ai links).
+- No attribution trailers or tool credits in commits or committed files.
 
 ## Review Focus
 

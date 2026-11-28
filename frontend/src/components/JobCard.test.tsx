@@ -9,7 +9,8 @@ const noop = () => undefined;
 function job(overrides: Partial<RankedJob> = {}): RankedJob {
   return {
     posting_id: "p1",
-    title: "Software Engineer Intern, Platform Infrastructure and Developer Productivity, Summer 2027",
+    title:
+      "Software Engineer Intern, Platform Infrastructure and Developer Productivity, Summer 2027",
     company: "Atlan",
     city: null,
     remote_scope: "remote_country",

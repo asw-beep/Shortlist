@@ -84,7 +84,7 @@ h2 {
 }
 a {
   color: var(--ink);
-  text-decoration-color: var(--rule);
+  text-decoration-color: color-mix(in srgb, var(--ink) 35%, transparent);
   text-underline-offset: 3px;
 }
 a:hover {
@@ -228,7 +228,11 @@ a:hover {
     radial-gradient(circle at 10px 10px, var(--rule) 2px, transparent 2.6px),
     radial-gradient(circle at calc(100% - 10px) 10px, var(--rule) 2px, transparent 2.6px),
     radial-gradient(circle at 10px calc(100% - 10px), var(--rule) 2px, transparent 2.6px),
-    radial-gradient(circle at calc(100% - 10px) calc(100% - 10px), var(--rule) 2px, transparent 2.6px);
+    radial-gradient(
+      circle at calc(100% - 10px) calc(100% - 10px),
+      var(--rule) 2px,
+      transparent 2.6px
+    );
   border: 1px solid var(--rule);
   border-radius: var(--radius);
   padding: 1.6rem 1.75rem;
@@ -309,7 +313,7 @@ a:hover {
   cursor: pointer;
   padding: 0;
   text-decoration: underline;
-  text-decoration-color: var(--rule);
+  text-decoration-color: color-mix(in srgb, var(--ink) 35%, transparent);
   text-underline-offset: 3px;
 }
 .link-button:hover {
@@ -718,17 +722,30 @@ input[type="file"]::file-selector-button {
 }
 
 /* ---------- Profile ---------- */
+/* <details> lays its content out in a slot, so space the children with margins, not grid gap. */
 .resume {
   border: 1px dashed var(--rule);
   border-radius: 10px;
   padding: 0.9rem 1.1rem;
   margin-bottom: 1.6rem;
-  display: grid;
-  gap: 0.7rem;
 }
 .resume summary {
   cursor: pointer;
   font-weight: 600;
+}
+.resume p {
+  margin: 0.7rem 0 0.9rem;
+}
+.resume input[type="file"],
+.resume textarea {
+  display: block;
+  max-width: 100%;
+}
+.resume textarea {
+  margin: 0.75rem 0 0.9rem;
+}
+.check + .field {
+  margin-top: 1.2rem;
 }
 .resume summary::marker {
   color: var(--signal);

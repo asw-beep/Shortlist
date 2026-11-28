@@ -51,7 +51,13 @@ export function JobCard({ job, saved, onSave, onDismiss, onOpen }: JobCardProps)
         </ul>
       )}
       <div className="job__actions">
-        <a className="key" href={job.url} target="_blank" rel="noopener noreferrer" onClick={onOpen}>
+        <a
+          className="key"
+          href={job.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={onOpen}
+        >
           Open
         </a>
         <button type="button" className="key key--signal" onClick={onSave} disabled={saved}>

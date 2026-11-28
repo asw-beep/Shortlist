@@ -42,11 +42,7 @@ export function SavedPage() {
               <a className="key" href={item.url} target="_blank" rel="noopener noreferrer">
                 Open
               </a>
-              <button
-                type="button"
-                className="key"
-                onClick={() => remove.mutate(item.posting_id)}
-              >
+              <button type="button" className="key" onClick={() => remove.mutate(item.posting_id)}>
                 Remove
               </button>
             </div>
