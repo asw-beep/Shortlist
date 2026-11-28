@@ -16,3 +16,4 @@ frontend/playwright-report/
 backend/evals/data/*.jsonl.gz
 backend/evals/ranking/pool.jsonl
 .neon
+db.txt
