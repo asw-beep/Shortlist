@@ -9,6 +9,44 @@ Everything runs on free tiers.
 Phase 1 (this repository today) is the feed. Phase 2 adds a tool-calling agent to refine a
 search by chat.
 
+## Screens
+
+Every posting gets a match readout, and **Why** opens the six ranking factors as meters. Light
+and dark follow the system setting. Captured from a local run with a demo account and real
+postings from the public boards.
+
+<p align="center">
+  <img src="docs/media/feed.gif" width="880" alt="Searching the feed for python backend intern, opening Why on the top posting and saving it">
+</p>
+
+| Sign up with an invite | Set up a profile, then see the feed |
+|---|---|
+| <img src="docs/media/register.gif" alt="Creating an account with an invite code"> | <img src="docs/media/profile.gif" alt="Choosing roles, levels, skills and cities, saving the profile and opening the feed"> |
+| **Saved postings** | **Forgot password, then log in (dark)** |
+| <img src="docs/media/saved.gif" alt="Opening the saved list and removing a posting"> | <img src="docs/media/login.gif" alt="Requesting a reset link, logging in and opening Why on the first posting"> |
+
+| Page | Light | Dark |
+|---|---|---|
+| Feed, with Why open | <img src="docs/media/feed-light.png" width="420" alt="Feed in light mode"> | <img src="docs/media/feed-dark.png" width="420" alt="Feed in dark mode"> |
+| Saved | <img src="docs/media/saved-light.png" width="420" alt="Saved postings in light mode"> | <img src="docs/media/saved-dark.png" width="420" alt="Saved postings in dark mode"> |
+| Profile | <img src="docs/media/profile-light.png" width="420" alt="Profile form in light mode"> | <img src="docs/media/profile-dark.png" width="420" alt="Profile form in dark mode"> |
+| Log in | <img src="docs/media/login-light.png" width="420" alt="Log in in light mode"> | <img src="docs/media/login-dark.png" width="420" alt="Log in in dark mode"> |
+
+<details>
+<summary>The other pages</summary>
+
+| Page | Light | Dark |
+|---|---|---|
+| Create account | <img src="docs/media/register-light.png" width="420" alt="Create account in light mode"> | <img src="docs/media/register-dark.png" width="420" alt="Create account in dark mode"> |
+| Forgot password | <img src="docs/media/forgot-password-light.png" width="420" alt="Forgot password in light mode"> | <img src="docs/media/forgot-password-dark.png" width="420" alt="Forgot password in dark mode"> |
+| New password (from the emailed link) | <img src="docs/media/reset-password-light.png" width="420" alt="New password in light mode"> | <img src="docs/media/reset-password-dark.png" width="420" alt="New password in dark mode"> |
+| Thanks (digest one-click links) | <img src="docs/media/thanks-light.png" width="420" alt="Thanks page in light mode"> | <img src="docs/media/thanks-dark.png" width="420" alt="Thanks page in dark mode"> |
+| Waking the server | <img src="docs/media/waking-light.png" width="420" alt="Waking the server in light mode"> | <img src="docs/media/waking-dark.png" width="420" alt="Waking the server in dark mode"> |
+| Can't reach Shortlist | <img src="docs/media/unavailable-light.png" width="420" alt="Can't reach Shortlist in light mode"> | <img src="docs/media/unavailable-dark.png" width="420" alt="Can't reach Shortlist in dark mode"> |
+| Not found | <img src="docs/media/not-found-light.png" width="420" alt="Not found in light mode"> | <img src="docs/media/not-found-dark.png" width="420" alt="Not found in dark mode"> |
+
+</details>
+
 ## How it works
 
 ```
