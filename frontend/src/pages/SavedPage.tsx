@@ -24,21 +24,27 @@ export function SavedPage() {
       <ul className="saved">
         {saved.data?.items.map((item) => (
           <li key={item.posting_id} className="saved__item">
-            <div>
-              <strong>{item.title}</strong>
-              <span className="muted">
-                {" "}
-                · {item.company} · saved {new Date(item.saved_at).toLocaleDateString()}
+            <div className="saved__main">
+              <strong>
+                {item.title}
+                {item.status === "closed" && (
+                  <span className="badge">
+                    <span className="led led--off" aria-hidden="true" />
+                    Closed
+                  </span>
+                )}
+              </strong>
+              <span className="cap">
+                {item.company} · saved {new Date(item.saved_at).toLocaleDateString()}
               </span>
-              {item.status === "closed" && <span className="badge">Closed</span>}
             </div>
             <div className="saved__actions">
-              <a href={item.url} target="_blank" rel="noopener noreferrer">
+              <a className="key" href={item.url} target="_blank" rel="noopener noreferrer">
                 Open
               </a>
               <button
                 type="button"
-                className="link-button"
+                className="key"
                 onClick={() => remove.mutate(item.posting_id)}
               >
                 Remove
