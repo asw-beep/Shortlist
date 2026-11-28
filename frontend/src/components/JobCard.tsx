@@ -28,17 +28,21 @@ interface JobCardProps {
 export function JobCard({ job, saved, onSave, onDismiss, onOpen }: JobCardProps) {
   const [showWhy, setShowWhy] = useState(false);
   const whyId = useId();
+  const score = Math.round(job.score * 100);
   return (
     <article className="job">
       <header className="job__head">
-        <h2 className="job__title">{job.title}</h2>
-        <span className="job__score" title="Match score">
-          {Math.round(job.score * 100)}
+        <div className="job__id">
+          <p className="cap job__meta">
+            {job.company} · {place(job.city, job.remote_scope)} · seen {daysAgo(job.first_seen_at)}
+          </p>
+          <h2 className="job__title">{job.title}</h2>
+        </div>
+        <span className="lcd" role="img" aria-label={`Match score ${score}`}>
+          <span className="lcd__cap">Match</span>
+          <span className="lcd__num">{score}</span>
         </span>
       </header>
-      <p className="job__meta">
-        {job.company} · {place(job.city, job.remote_scope)} · seen {daysAgo(job.first_seen_at)}
-      </p>
       {job.matched_skills.length > 0 && (
         <ul className="chips" aria-label="Skills you have">
           {job.matched_skills.slice(0, 6).map((skill) => (
@@ -47,24 +51,18 @@ export function JobCard({ job, saved, onSave, onDismiss, onOpen }: JobCardProps)
         </ul>
       )}
       <div className="job__actions">
-        <a
-          className="button"
-          href={job.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={onOpen}
-        >
+        <a className="key" href={job.url} target="_blank" rel="noopener noreferrer" onClick={onOpen}>
           Open
         </a>
-        <button type="button" className="button button--quiet" onClick={onSave} disabled={saved}>
+        <button type="button" className="key key--signal" onClick={onSave} disabled={saved}>
           {saved ? "Saved" : "Save"}
         </button>
-        <button type="button" className="button button--quiet" onClick={onDismiss}>
+        <button type="button" className="key" onClick={onDismiss}>
           Not for me
         </button>
         <button
           type="button"
-          className="link-button"
+          className="key key--toggle"
           aria-expanded={showWhy}
           aria-controls={whyId}
           onClick={() => setShowWhy((open) => !open)}
