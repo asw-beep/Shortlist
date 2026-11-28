@@ -20,33 +20,25 @@ export function Layout({ children }: { children: ReactNode }) {
       </a>
       <header className="masthead">
         <Link to="/" className="wordmark" aria-label="Shortlist home">
-          <svg viewBox="0 0 32 32" aria-hidden="true" className="wordmark__mark">
-            <rect width="32" height="32" rx="7" fill="currentColor" />
-            <path
-              d="M9 11h14M9 16h10M9 21h6"
-              stroke="var(--paper)"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-            />
-          </svg>
+          <span className="led" aria-hidden="true" />
           Shortlist
         </Link>
         <nav aria-label="Main">
           {status === "signed-in" && user && (
-            <>
+            <div className="segments">
               <NavLink to="/feed">Feed</NavLink>
               <NavLink to="/saved">Saved</NavLink>
               <NavLink to="/profile">{user.full_name.split(" ")[0] || "Profile"}</NavLink>
-              <button type="button" className="link-button" onClick={handleLogOut}>
+              <button type="button" className="segment" onClick={handleLogOut}>
                 Log out
               </button>
-            </>
+            </div>
           )}
           {status === "signed-out" && (
-            <>
+            <div className="segments">
               <NavLink to="/login">Log in</NavLink>
               <NavLink to="/register">Join with an invite</NavLink>
-            </>
+            </div>
           )}
         </nav>
       </header>

@@ -64,12 +64,12 @@ export function FeedPage() {
             placeholder="e.g. backend python, data intern"
             maxLength={200}
           />
-          <button className="button" type="submit">
+          <button className="button button--quiet" type="submit">
             Search
           </button>
         </form>
       </div>
-      {feed.data && <p className="muted">Ranked for: {feed.data.query_used}</p>}
+      {feed.data && <p className="cap ranked">Ranked for: {feed.data.query_used}</p>}
       <FormError error={feed.error ?? save.error ?? dismiss.error} />
       {feed.isPending && <p className="muted">Finding postings…</p>}
       {feed.data?.items.length === 0 && (
