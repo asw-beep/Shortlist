@@ -209,6 +209,8 @@ page, then deletes the account. It spends one invite.
   kept.
 - **Email addresses** go to Brevo, only to send the digest a student opted into and password
   emails.
+- **Fonts** (Geist, Geist Mono, Doto) load from Google Fonts, so a browser opening the web app
+  also requests them from Google's servers. No account data is sent with them.
 - **Feed impressions, saves, dismissals and clicks** are stored to rank postings and to measure
   the ranking; they are never shared.
 - **Deleting an account** (Profile → Delete account, or `DELETE /api/v1/users/me`) removes the
