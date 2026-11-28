@@ -6,6 +6,8 @@ postings a student in India can actually take, ranks them for each student with 
 score, learns from saves and dismissals, and emails a weekly digest with one-click links.
 Everything runs on free tiers.
 
+**Live:** https://shortlist.aswin23bcs12.workers.dev/ (sign-up needs an invite code).
+
 Phase 1 (this repository today) is the feed. Phase 2 adds a tool-calling agent to refine a
 search by chat.
 
